@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Valauro Wedding Rings</string>
+    <string name="design">Σχέδιο:</string>
+    <string name="carats">Καράτια:</string>
+    <string name="profile">Προφίλ:</string>
+    <string name="stones">Αριθμός μπριγιάν:</string>
+    <string name="priceNoVat">Τιμή χωρίς ΦΠΑ </string>
+    <string name="priceWithVat">Τιμή με ΦΠΑ </string>
+    <string name="totalcostNoVat">Προτεινόμενη τιμή λιανικής χωρίς ΦΠΑ:</string>
+    <string name="totalcostWithVat">Προτεινόμενη τιμή λιανικής με ΦΠΑ:</string>
+    <string name="calculate_order">υπολογισμοσ παραγγελιασ</string>
+    <string name="no_internet">Συνδεθείτε στο Internet και επανεκκινήστε την εφαρμογή</string>
+    <string name="just_normal_profile">Το σχέδιο αυτό είναι διαθέσιμο μόνο σε κανονικό προφίλ</string>
+    <string name="availableColor">Διαθέσιμο σε λευκό, κίτρινο</string>
+    <string name="price_no_vat">Τιμή χωρίς ΦΠΑ : </string>
+    <string name="price_with_vat">Τιμή με ΦΠΑ : </string>
+    <string name="three_colors">Διαθέσιμο σε λευκό, κίτρινο, ροζ </string>
+    <string name="color_combination">Διαθέσιμο σε δίχρωμο, μονόχρωμο και όλους τους συνδυασμούς</string>
+    <string name="all_combination">Διαθέσιμο σε όλους τους συνδυασμούς</string>
+    <string name="nocolor"> </string>
+    <string name="internetSettings">Ρυθμίσεις Internet </string>
+    <string name="resetApp">Επανεκκίνηση </string>
+    <string name="appVersion">ValauroPartner Version 1.0 by Dim)e(Geo </string>
+</resources>
