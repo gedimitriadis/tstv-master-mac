@@ -4,12 +4,19 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
+import android.hardware.display.DisplayManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
+import android.os.CountDownTimer;
+import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
     // Will show the string "data" that holds the results
+
+
     TextView date_TextView;
     TextView price_TextView;
     Button buttonCalculate;
@@ -87,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner_man_stones;
     TextView internetSettings;
     TextView resetApp;
+
+
     // URL of object to be parsed
     String JsonURL = "https://www.quandl.com/api/v3/datasets/LBMA/GOLD.json?column_index=6&exclude_column_names=true&rows=2&order=asc&api_key=yu5Cz1dz6Vs4nPXu9TmL";
     // This string will hold the results
@@ -119,6 +130,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+
+
         // Creates the Volley request queue
         requestQueue = Volley.newRequestQueue(this);
 
@@ -151,6 +168,10 @@ public class MainActivity extends AppCompatActivity {
         // totalCostNoVat = (TextView) findViewById(R.id.total_cost_noVAT);
         totalCostWithVat = (TextView) findViewById(R.id.total_cost_withVAT);
         buttonCalculate = (Button) findViewById(R.id.btnCalculate);
+
+
+        //PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+       // boolean isScreenOn = pm.isInteractive();
 
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
@@ -234,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
                 spinner_woman_profiles.setEnabled(true);
                 posW = parent.getSelectedItemPosition();
                 //for relative woman and man designs - automatic man design selection
-                if (posW==53 || posW ==58  || posW ==60 || posW ==62 || posW ==64|| posW ==68|| posW ==71|| posW ==73|| posW ==77|| posW ==86|| posW ==89|| posW ==92|| posW ==94|| posW ==98|| posW ==100|| posW ==102|| posW ==104|| posW ==107|| posW ==109|| posW ==111|| posW ==113|| posW ==115|| posW ==117|| posW ==119|| posW ==121|| posW ==124|| posW ==128|| posW ==135|| posW ==138|| posW ==140|| posW ==142|| posW ==148|| posW ==155|| posW ==159|| posW ==165|| posW ==170|| posW ==183|| posW ==185|| posW ==187|| posW ==189|| posW ==191|| posW ==193 || posW ==195 || posW ==197 || posW ==199 || posW ==201 || posW ==203 || posW ==205 || posW ==227 || posW ==238 || posW ==240 || posW ==242 || posW ==244  || posW ==278 || posW ==280 || posW ==282 || posW ==284 || posW ==286 || posW ==288 || posW ==290 || posW ==292 || posW ==294 || posW ==296 || posW ==298 || posW ==300  || posW ==302 || posW ==304 || posW ==306 || posW ==308 || posW ==310 || posW ==312 || posW ==314 || posW ==327|| posW ==334 || posW ==336 || posW ==338 || posW ==340 || posW ==342 || posW ==344  ) {
+                if (posW==53 || posW ==58  || posW ==60 || posW ==62 || posW ==64|| posW ==68|| posW ==71|| posW ==73|| posW ==77|| posW ==86|| posW ==89|| posW ==92|| posW ==94|| posW ==98|| posW ==100|| posW ==102|| posW ==104|| posW ==107|| posW ==109|| posW ==111|| posW ==113|| posW ==115|| posW ==117|| posW ==119|| posW ==121|| posW ==124|| posW ==128|| posW ==135|| posW ==138|| posW ==140|| posW ==142|| posW ==148|| posW ==155|| posW ==159|| posW ==165|| posW ==170|| posW ==183|| posW ==185|| posW ==187|| posW ==189|| posW ==191|| posW ==193 || posW ==195 || posW ==197 || posW ==199 || posW ==201 || posW ==203 || posW ==205 || posW ==227 || posW ==238 || posW ==240 || posW ==242 || posW ==244  || posW ==278 || posW ==280 || posW ==282 || posW ==284 || posW ==286 || posW ==288 || posW ==290 || posW ==292 || posW ==294 || posW ==296 || posW ==298 || posW ==300  || posW ==302 || posW ==304 || posW ==306 || posW ==308 || posW ==310 || posW ==312 || posW ==314 || posW ==327|| posW ==334 || posW ==335 || posW ==337 || posW ==339 || posW ==341 || posW ==343 || posW ==345  ) {
                     spinner_man_design.setSelection(posW + 1);
                 }else{
                     spinner_man_design.setSelection(posW);
@@ -481,6 +502,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     public void CreateSpinnerDesign() {
@@ -834,11 +856,21 @@ public class MainActivity extends AppCompatActivity {
         designs.add("454Γ - 4mm");
         designs.add("454Γ - Α - 4mm");
 
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        ArrayAdapter adapter;
+       if (metrics.density < 2) {
+
+            adapter = new ArrayAdapter(this, R.layout.spinner_layout, designs);
+            adapter.setDropDownViewResource(R.layout.spinner_layout);
 
 
+        }else {
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, designs);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+           adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, designs);
+           adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+       }
 
         spinner_woman_design.setAdapter(adapter);
         spinner_woman_design.setSelection(0);
@@ -846,6 +878,7 @@ public class MainActivity extends AppCompatActivity {
         spinner_man_design.setAdapter(adapter);
         spinner_man_design.setSelection(0);
         posM = 0;
+
 
     }
 
@@ -857,8 +890,22 @@ public class MainActivity extends AppCompatActivity {
         carats.add("14K");
         carats.add("18K");
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, carats);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        ArrayAdapter adapter;
+        if (metrics.density < 2) {
+
+            adapter = new ArrayAdapter(this, R.layout.spinner_layout, carats);
+            adapter.setDropDownViewResource(R.layout.spinner_layout);
+
+
+        }else {
+
+            adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, carats);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        }
+
 
         spinner_woman_carats.setAdapter(adapter);
         spinner_woman_carats.setSelection(1);
@@ -876,8 +923,21 @@ public class MainActivity extends AppCompatActivity {
         profiles.add("Κανονικό");
         profiles.add("Ψηλό");
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, profiles);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        ArrayAdapter adapter;
+        if (metrics.density < 2) {
+
+            adapter = new ArrayAdapter(this, R.layout.spinner_layout, profiles);
+            adapter.setDropDownViewResource(R.layout.spinner_layout);
+
+
+        }else {
+
+            adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, profiles);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        }
 
         spinner_woman_profiles.setAdapter(adapter);
         spinner_woman_profiles.setSelection(1);
@@ -909,8 +969,22 @@ public class MainActivity extends AppCompatActivity {
         numberOfStones.add(14);
         numberOfStones.add(15);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, numberOfStones);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        ArrayAdapter adapter;
+        if (metrics.density < 2) {
+
+            adapter = new ArrayAdapter(this, R.layout.spinner_layout, numberOfStones);
+            adapter.setDropDownViewResource(R.layout.spinner_layout);
+
+
+        }else {
+
+            adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, numberOfStones);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        }
 
         spinner_woman_stones.setAdapter(adapter);
         spinner_woman_stones.setSelection(0);
@@ -2341,6 +2415,33 @@ public class MainActivity extends AppCompatActivity {
         return ringColors;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();  // Always call the superclass method first
+
+        // resets every selection after 10 minutes of idle
+
+        new CountDownTimer(600000, 1000){
+            public void onTick(long millisUntilFinished){
+
+            }
+            public  void onFinish(){
+                spinner_woman_design.setSelection(0);
+                spinner_man_design.setSelection(0);
+                spinner_man_carats.setSelection(1);
+                spinner_woman_carats.setSelection(1);
+                spinner_woman_profiles.setSelection(1);
+                spinner_man_profiles.setSelection(1);
+                spinner_woman_stones.setSelection(0);
+                spinner_man_stones.setSelection(0);
+                totalCostWithVat.setText("0");
+            }
+        }.start();
+
+    }
+
+
+
 
     //Save current values when rotating screen
     @Override
@@ -2385,4 +2486,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
 }

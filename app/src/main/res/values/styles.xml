@@ -29,6 +29,14 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/marginLeft12</item>
+        <item name="android:textSize">@dimen/text24</item>
+    </style>
+
+    <style name="LeftLabelStyleW600">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/marginLeft12</item>
+        <item name="android:textSize">@dimen/text14</item>
     </style>
 
     <style name="AvailableColorStyle">
@@ -44,12 +52,20 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/marginLeft8</item>
+        <item name="android:textSize">@dimen/text24</item>
+    </style>
+
+    <style name="RightLabelStyleW600">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/marginLeft8</item>
+        <item name="android:textSize">@dimen/text14</item>
     </style>
 
     <style name="appVersionStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">@dimen/text14</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:padding">@dimen/padding16</item>
@@ -63,7 +79,7 @@
         <item name="android:paddingBottom">@dimen/paddingBottom32</item>
         <item name="android:textColor">@color/gold</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/text14</item>
+        <item name="android:textSize">@dimen/text18</item>
     </style>
 
     <style name="RightPricesStyle">
@@ -73,16 +89,27 @@
         <item name="android:paddingBottom">@dimen/paddingBottom32</item>
         <item name="android:textColor">@color/gold</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/text14</item>
+        <item name="android:textSize">@dimen/text18</item>
     </style>
 
     <style name="SpinnerStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/padding4</item>
-        <item name="android:dropDownWidth">150dp</item>
+        <item name="android:dropDownWidth">250dp</item>
         <item name="android:spinnerMode">dropdown</item>
         <item name="android:backgroundTint">@color/gold</item>
+        <item name="android:textSize">@dimen/text14</item>
+    </style>
+
+    <style name="SpinnerStyleW600">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/padding4</item>
+        <item name="android:dropDownWidth">250dp</item>
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:backgroundTint">@color/gold</item>
+        <item name="android:textSize">@dimen/text18</item>
     </style>
 
 
@@ -90,10 +117,25 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/marginLeft12</item>
+        <item name="android:textSize">@dimen/text18</item>
+    </style>
+
+    <style name="totalCostsLabelsStyleW600">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/marginLeft12</item>
         <item name="android:textSize">@dimen/text14</item>
     </style>
 
     <style name="totalCostsStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/marginLeft12</item>
+        <item name="android:textSize">@dimen/text48</item>
+        <item name="android:textColor">@color/gold</item>
+    </style>
+
+    <style name="totalCostsStyleW600">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/marginLeft12</item>
@@ -108,6 +150,18 @@
         <item name="android:layout_margin">@dimen/layoutMargin24</item>
         <item name="android:padding">@dimen/padding4</item>
         <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text24</item>
+        <item name="android:background">@color/gold</item>
+    </style>
+
+    <style name="ButtonStyleW600">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">@dimen/layoutMargin24</item>
+        <item name="android:padding">@dimen/padding4</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text14</item>
         <item name="android:background">@color/gold</item>
     </style>
 

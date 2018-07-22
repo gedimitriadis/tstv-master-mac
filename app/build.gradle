@@ -5,10 +5,10 @@ android {
     //buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.partner.android.valauroPartner"
-        minSdkVersion 15
+        minSdkVersion 20
         targetSdkVersion 26
-        versionCode 11
-        versionName "04_07_2018"
+        versionCode 13
+        versionName "19_07_2018"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
