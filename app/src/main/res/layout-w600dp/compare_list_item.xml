@@ -1,0 +1,193 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+
+    <!-- Woman ring image-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/Image_Ring_Woman"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerInside"
+            android:contentDescription="ring description" />
+
+        <!-- Ring Pair data WOMAN-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="200dp"
+            android:layout_margin="@dimen/margin8"
+            android:orientation="vertical">
+
+            <!-- Woman design-->
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <TextView
+                    style="@style/labelStyle"
+                    android:text="Σχέδιο" />
+
+                <TextView
+                    android:id="@+id/Design_Woman_TextView"
+                    style="@style/DataStyle" />
+            </LinearLayout>
+
+            <!-- Woman carats-->
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <TextView
+                    style="@style/labelStyle"
+                    android:text="Καράτια" />
+
+                <TextView
+                    android:id="@+id/Carats_Woman_TextView"
+                    style="@style/DataStyle" />
+            </LinearLayout>
+
+            <!-- Woman profile -->
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <TextView
+                    style="@style/labelStyle"
+                    android:text="Προφίλ" />
+
+                <TextView
+                    android:id="@+id/Profile_Woman_TextView"
+                    style="@style/DataStyle" />
+            </LinearLayout>
+
+            <!-- Woman Stones-->
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <TextView
+                    style="@style/labelStyle"
+                    android:text="Αριθμός μπριγιάν" />
+
+                <TextView
+                    android:id="@+id/Stones_Woman_TextView"
+                    style="@style/DataStyle" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Man ring image-->
+        <ImageView
+            android:id="@+id/Image_Ring_Man"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerInside"
+            android:contentDescription="ring description" />
+
+        <!-- Ring Pair data MAN-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="200dp"
+            android:layout_margin="@dimen/margin8"
+            android:orientation="vertical">
+
+            <!-- Man design-->
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <TextView
+                    style="@style/labelStyle"
+                    android:text="Σχέδιο" />
+
+                <TextView
+                    android:id="@+id/Design_Man_TextView"
+                    style="@style/DataStyle" />
+            </LinearLayout>
+
+            <!-- Man carats-->
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <TextView
+                    style="@style/labelStyle"
+                    android:text="Καράτια" />
+
+                <TextView
+                    android:id="@+id/Carats_Man_TextView"
+                    style="@style/DataStyle" />
+            </LinearLayout>
+
+            <!-- Man profile -->
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <TextView
+                    style="@style/labelStyle"
+                    android:text="Προφίλ" />
+
+                <TextView
+                    android:id="@+id/Profile_Man_TextView"
+                    style="@style/DataStyle" />
+            </LinearLayout>
+
+            <!-- Man Stones-->
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <TextView
+                    style="@style/labelStyle"
+                    android:text="Αριθμός μπριγιάν" />
+
+                <TextView
+                    android:id="@+id/Stones_Man_TextView"
+                    style="@style/DataStyle" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gold"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Pair_Price_Label_TextView"
+            style="@style/labelStyle"
+            android:text="Τιμή ζευγαριού"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/marginLeft12"/>
+
+        <TextView
+            android:id="@+id/Pair_Price_Data_TextView"
+            style="@style/DataStyle"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/text36"
+            android:textStyle="bold"
+             />
+
+        <!--
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Διαγραφή"
+                    android:textSize="@dimen/text18"
+                    android:textStyle="bold"
+                    android:background="@color/gold"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/marginLeft12"/> -->
+
+
+    </LinearLayout>
+
+</LinearLayout>

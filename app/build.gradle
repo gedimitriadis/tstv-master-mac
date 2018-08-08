@@ -7,8 +7,8 @@ android {
         applicationId "com.partner.android.valauroPartner"
         minSdkVersion 20
         targetSdkVersion 26
-        versionCode 13
-        versionName "19_07_2018"
+        versionCode 15
+        versionName "01_08_2018"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,6 +28,7 @@ dependencies {
     //compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support:appcompat-v7:26.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:27.0.1'
     
 
     testCompile 'junit:junit:4.12'

@@ -340,6 +340,48 @@ android:background="@color/white">
         android:id="@+id/btnCalculate"
         style="@style/ButtonStyleW600"
         android:text="@string/calculate_order" />
+
+    <TextView
+        android:id="@+id/explanation"
+        android:text="@string/explanation_text"
+        style="@style/ExplanationStyle"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <Button
+        android:id="@+id/btnAddToCompare"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="@string/add_to_compare"
+        android:textColor="@color/textColor"
+        android:background="@color/gold"
+        android:layout_margin="@dimen/margin4"/>
+
+    <Button
+        android:id="@+id/Compare"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="@string/compare"
+        android:textColor="@color/textColor"
+        android:background="@color/gold"
+        android:layout_margin="@dimen/margin4"/>
+    </LinearLayout>
+<!--
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/Compare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/compare"
+        android:layout_margin="16dp" /> -->
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

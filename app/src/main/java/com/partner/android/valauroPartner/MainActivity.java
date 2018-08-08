@@ -10,8 +10,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.CountDownTimer;
+import android.os.Parcelable;
 import android.os.PowerManager;
 import android.provider.Settings;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -45,16 +47,21 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements java.io.Serializable{
 
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
     // Will show the string "data" that holds the results
 
-
+    public static int shippingCost = 10;
     TextView date_TextView;
     TextView price_TextView;
     Button buttonCalculate;
+    Button buttonAddToCompare;
+    Button buttonCompare;
+    //Button buttonCompare;
     ArrayList<Double> weights;
+    static ArrayList<pairOfRingsItem> pairOfRingsItems = new ArrayList<pairOfRingsItem>();
+
     int posW;
     int posM;
     double goldPricePerGrammar;
@@ -136,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         // Creates the Volley request queue
         requestQueue = Volley.newRequestQueue(this);
 
@@ -143,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
         date_TextView = (TextView) findViewById(R.id.date);
         price_TextView = (TextView) findViewById(R.id.goldprice);
         buttonCalculate = (Button) findViewById(R.id.btnCalculate);
+        buttonAddToCompare = (Button) findViewById(R.id.btnAddToCompare);
         // testPosition = (TextView) findViewById(R.id.test_position);
         // testcaratsmultiplier = (TextView)findViewById(R.id.test_multiplier_carats);
         // testprofilemultiplier = (TextView) findViewById(R.id.test_multiplier_profile);
@@ -168,8 +177,7 @@ public class MainActivity extends AppCompatActivity {
         // totalCostNoVat = (TextView) findViewById(R.id.total_cost_noVAT);
         totalCostWithVat = (TextView) findViewById(R.id.total_cost_withVAT);
         buttonCalculate = (Button) findViewById(R.id.btnCalculate);
-
-
+        buttonCompare = (Button) findViewById(R.id.Compare);
         //PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
        // boolean isScreenOn = pm.isInteractive();
 
@@ -246,6 +254,7 @@ public class MainActivity extends AppCompatActivity {
         // gold price and date textviews are invisible for now
         price_TextView.setVisibility(View.GONE);
         date_TextView.setVisibility(View.GONE);
+        buttonCompare.setVisibility(View.GONE);
 
 
         // Set OnClickItemListener on spinner for woman ring
@@ -265,6 +274,7 @@ public class MainActivity extends AppCompatActivity {
                 // testPosition.setText(weightTable().get(posW).toString());
                 labourCostW = labourTable().get(posW);
                 ringImageWoman.setImageResource(imageTable().get(posW));
+                //Log.v(LOG_TAG, "imageTable().get(posW) =  " + imageTable().get(posW) );
                 // available color for woman design
                 femaleColor.setText("" + colorTable().get(posW));
                 // testlabourCost.setText("" + labourCostW);
@@ -476,15 +486,65 @@ public class MainActivity extends AppCompatActivity {
                 //  totalCost_noVAT = (womanRingPriceNoVAT + manRingPriceNoVAT) * 2;
                 //  totalCostNoVat.setText(String.format("%.0f", totalCost_noVAT) + " €");
 
-                totalCost_withVAT = (womanRingPriceWithVAT + manRingPriceWithVAT) * 2 + womanStoneValue + manStoneValue;
+                totalCost_withVAT = (womanRingPriceWithVAT + manRingPriceWithVAT) * 2 + womanStoneValue + manStoneValue + shippingCost;
                 totalCostWithVat.setText(String.format("%.0f", totalCost_withVAT) + " €");
 
             }
         });
+
+
+        buttonAddToCompare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int WomanImageResourceID = imageTable().get(posW);
+                int ManImageResourceID = imageTable().get(posM);
+                String designWoman = spinner_woman_design.getSelectedItem().toString();
+                String designMan = spinner_man_design.getSelectedItem().toString();
+                String caratsWoman = spinner_woman_carats.getSelectedItem().toString();
+                String caratsMan = spinner_man_carats.getSelectedItem().toString();
+                String profileWoman = spinner_woman_profiles.getSelectedItem().toString();
+                String profileMan = spinner_man_profiles.getSelectedItem().toString();
+                int stonesWoman = (int) spinner_woman_stones.getSelectedItem();
+                int stonesMan = (int) spinner_man_stones.getSelectedItem();
+                buttonCalculate.performClick();
+                String pairCost = (String) totalCostWithVat.getText();
+                buttonCompare.setVisibility(View.VISIBLE);
+
+
+                pairOfRingsItem pairOfRingsItem = new pairOfRingsItem(WomanImageResourceID, ManImageResourceID, designWoman, designMan, caratsWoman, caratsMan, profileWoman, profileMan,stonesWoman,stonesMan, pairCost);
+
+                Toast toast = Toast.makeText(MainActivity.this, R.string.add_to_compare_complete, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                Log.v("pairOfRingsItem", "womanImageID " + WomanImageResourceID + " ManImageID " + ManImageResourceID + " design woman " + designWoman + " design man " +designMan + " carats woman " + caratsWoman + " carats man " + caratsMan + " profile woman " + profileWoman + " profile man " + profileMan + " stones woman " + stonesWoman +" stones man " +  stonesMan + " pairCost " + pairCost);
+                // Add the new {@link book} to the list of books.
+
+                pairOfRingsItems.add(pairOfRingsItem);
+
+            }
+        });
+
+
+        buttonCompare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, CompareActivity.class);
+                myIntent.putExtra("FILES_TO_SEND", pairOfRingsItems);
+                //ArrayList<pairOfRingsItem> myList = new ArrayList<pairOfRingsItem>();
+                //myIntent.putParcelableArrayListExtra("pairRingsList", (ArrayList<? extends Parcelable>) pairOfRingsItems); //Optional parameters
+                MainActivity.this.startActivity(myIntent);
+            }
+        });
+
+
+
+
+
         // opens internet settings
         internetSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
             }
         });
@@ -502,6 +562,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+        //Refresh your stuff here
 
     }
 
@@ -1704,7 +1772,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public ArrayList<Integer> imageTable() {
+    public static ArrayList<Integer> imageTable() {
         ArrayList<Integer> ringImages = new ArrayList<Integer>();
         ringImages.add(R.drawable.valauro_square250);
         ringImages.add(R.drawable.v001c);
@@ -2486,6 +2554,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
 
 
