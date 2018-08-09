@@ -2,9 +2,6 @@ package com.partner.android.valauroPartner;
 
 public class pairOfRingsItem implements java.io.Serializable{
 
-
-
-
         /** ResourceID for woman's ring */
         private int mRingImageWoman;
          /** ResourceID for man's ring */
@@ -25,20 +22,9 @@ public class pairOfRingsItem implements java.io.Serializable{
         private int mStonesWoman;
          /** number of stones for man ring */
         private int mStonesMan;
+        /** total cost of the pair */
         private String mPairCost;
 
-
-
-
-        /**
-         * Create a new pairOfRingsItem object
-         * @param image is the image which will be shown as the book's image
-         * @param title is the book's title
-         * @param author is the book's author
-         * @param language is the book's language
-         * @param description is a short description of the book
-         * @param url is the link to the book's previewURL page
-         */
 
         public pairOfRingsItem(int ringImageWoman, int ringImageMan, String designWoman, String designMan, String caratsWoman, String caratsMan, String profileWoman, String profileMan, int stonesWoman, int stonesMan, String pairCost) {
             mRingImageWoman = ringImageWoman;
@@ -62,7 +48,6 @@ public class pairOfRingsItem implements java.io.Serializable{
         public int getRingImageMan(){
             return mRingImageMan;
         }
-
 
         public String getDesignWoman(){
             return mDesignWoman;

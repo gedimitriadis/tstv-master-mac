@@ -1,450 +1,448 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
+<!-- for phones until 5.5 inches-->
+
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:fillViewport="true"
-android:background="@color/white">
-
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context="com.partner.android.valauroPartner.MainActivity">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
 
-    <!--invisible TextViews for price and date-->
-    <LinearLayout
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin8"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        tools:context="com.partner.android.valauroPartner.MainActivity">
 
-        <TextView
-            android:id="@+id/goldprice"
-            android:layout_width="wrap_content"
+        <!--invisible TextViews for price and date-->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="@dimen/padding16"
-            android:textColor="#D8B27C"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="@dimen/padding16"
-            android:textColor="#D8B27C"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <!-- woman ring choices -->
-        <LinearLayout style="@style/LinearLayoutSexStyle">
-
-            <ImageView
-                style="@style/SexSymbolStyle"
-                android:src="@drawable/felame_symbol" />
-
-            <ImageView
-                android:id="@+id/female_ring_image"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:paddingBottom="@dimen/paddingBottom8"
-                android:scaleType="centerInside"
-                android:src="@drawable/v001c" />
+            android:layout_marginBottom="@dimen/margin8"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/female_color"
-                style="@style/AvailableColorStyle"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/paddingBottom32">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        style="@style/LeftLabelStyleW600"
-                        android:text="@string/design" />
-
-                    <Spinner
-                        android:id="@+id/woman_design"
-                        style="@style/SpinnerStyleW600" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/paddingBottom32">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/LeftLabelStyleW600"
-                        android:text="@string/carats" />
-
-                    <Spinner
-                        android:id="@+id/woman_carats"
-                        style="@style/SpinnerStyleW600" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/paddingBottom32">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/LeftLabelStyleW600"
-                        android:text="@string/profile" />
-
-                    <Spinner
-                        android:id="@+id/woman_profile"
-                        style="@style/SpinnerStyleW600" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/paddingBottom32">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/LeftLabelStyleW600"
-                        android:text="@string/stones" />
-
-                    <Spinner
-                        android:id="@+id/woman_stones"
-                        style="@style/SpinnerStyleW600" />
-                </LinearLayout>
-
-            </LinearLayout>
-            <!--
-            <TextView
-                android:id="@+id/woman_ring_price_no_VAT"
-                style="@style/LeftPricesStyle"
-                android:text="@string/priceNoVat" />
-
-            <TextView
-                android:id="@+id/woman_ring_price_with_VAT"
-                style="@style/LeftPricesStyle"
-                android:text="@string/priceWithVat" /> -->
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="fill_parent"
-            android:layout_margin="@dimen/margin4"
-            android:background="@android:color/darker_gray" />
-
-        <!-- male ring choices-->
-        <LinearLayout style="@style/LinearLayoutSexStyle">
-
-            <ImageView
-                style="@style/SexSymbolStyle"
-                android:src="@drawable/male_symbol" />
-
-            <ImageView
-                android:id="@+id/male_ring_image"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:paddingBottom="@dimen/paddingBottom8"
-                android:scaleType="centerInside"
-                android:src="@drawable/v001c" />
-
-            <TextView
-                android:id="@+id/male_color"
-                style="@style/AvailableColorStyle"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/paddingBottom32">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/RightLabelStyleW600"
-                        android:text="@string/design" />
-
-                    <Spinner
-                        android:id="@+id/man_design"
-                        style="@style/SpinnerStyleW600" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/paddingBottom32">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/RightLabelStyleW600"
-                        android:text="@string/carats" />
-
-                    <Spinner
-                        android:id="@+id/man_carats"
-                        style="@style/SpinnerStyleW600" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/paddingBottom32">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/RightLabelStyleW600"
-                        android:text="@string/profile" />
-
-                    <Spinner
-                        android:id="@+id/man_profile"
-                        style="@style/SpinnerStyleW600" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/paddingBottom32">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/LeftLabelStyleW600"
-                        android:text="@string/stones" />
-
-                    <Spinner
-                        android:id="@+id/man_stones"
-                        style="@style/SpinnerStyleW600" />
-                </LinearLayout>
-
-            </LinearLayout>
-            <!--
-            <TextView
-                android:id="@+id/man_ring_price_no_VAT"
-                style="@style/RightPricesStyle"
-                android:text="@string/priceNoVat" />
-
-            <TextView
-                android:id="@+id/man_ring_price_with_VAT"
-                style="@style/RightPricesStyle"
-                android:text="@string/priceWithVat" /> -->
-        </LinearLayout>
-
-
-    </LinearLayout>
-    <!--
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_gravity="center">
-
-               <TextView
-                   style="@style/totalCostsLabelsStyle"
-                   android:text="@string/totalcostNoVat" />
-
-               <TextView
-                   android:id="@+id/total_cost_noVAT"
-                   style="@style/totalCostsStyle" />
-           </LinearLayout>
-   -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-
-        <TextView
-            style="@style/totalCostsLabelsStyleW600"
-            android:text="@string/totalcostWithVat" />
-
-        <TextView
-            android:id="@+id/total_cost_withVAT"
-            style="@style/totalCostsStyleW600" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnCalculate"
-        style="@style/ButtonStyleW600"
-        android:text="@string/calculate_order" />
-
-    <TextView
-        android:id="@+id/explanation"
-        android:text="@string/explanation_text"
-        style="@style/ExplanationStyle"
-
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-    <Button
-        android:id="@+id/btnAddToCompare"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:text="@string/add_to_compare"
-        android:textColor="@color/textColor"
-        android:background="@color/gold"
-        android:layout_margin="@dimen/margin4"/>
-
-    <Button
-        android:id="@+id/Compare"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:text="@string/compare"
-        android:textColor="@color/textColor"
-        android:background="@color/gold"
-        android:layout_margin="@dimen/margin4"/>
-    </LinearLayout>
-<!--
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/Compare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:src="@drawable/compare"
-        android:layout_margin="16dp" /> -->
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-        <TextView
-            android:id="@+id/internetSettings"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:padding="@dimen/padding16"
-            android:text="@string/internetSettings"
-            android:textSize="@dimen/text14"/>
-        <TextView
-            android:id="@+id/resetApp"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:padding="@dimen/padding16"
-            android:text="@string/resetApp"
-            android:textSize="@dimen/text14"/>
-    </LinearLayout>
-    <!--
-            <LinearLayout
+                android:id="@+id/goldprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_gravity="center"
+                android:padding="@dimen/padding16"
+                android:textColor="#D8B27C"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/padding16"
+                android:textColor="#D8B27C"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <!-- woman ring choices -->
+            <LinearLayout style="@style/LinearLayoutSexStyle">
+
+                <ImageView
+                    style="@style/SexSymbolStyle"
+                    android:src="@drawable/felame_symbol" />
+
+                <ImageView
+                    android:id="@+id/female_ring_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:paddingBottom="@dimen/paddingBottom8"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/v001c" />
 
                 <TextView
-                    android:id="@+id/test_position"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:text="selected position" />
+                    android:id="@+id/female_color"
+                    style="@style/AvailableColorStyle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/paddingBottom32">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            style="@style/LeftLabelStyleW600"
+                            android:text="@string/design" />
+
+                        <Spinner
+                            android:id="@+id/woman_design"
+                            style="@style/SpinnerStyleW600" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/paddingBottom32">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/LeftLabelStyleW600"
+                            android:text="@string/carats" />
+
+                        <Spinner
+                            android:id="@+id/woman_carats"
+                            style="@style/SpinnerStyleW600" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/paddingBottom32">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/LeftLabelStyleW600"
+                            android:text="@string/profile" />
+
+                        <Spinner
+                            android:id="@+id/woman_profile"
+                            style="@style/SpinnerStyleW600" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/paddingBottom32">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/LeftLabelStyleW600"
+                            android:text="@string/stones" />
+
+                        <Spinner
+                            android:id="@+id/woman_stones"
+                            style="@style/SpinnerStyleW600" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--
+                <TextView
+                    android:id="@+id/woman_ring_price_no_VAT"
+                    style="@style/LeftPricesStyle"
+                    android:text="@string/priceNoVat" />
 
                 <TextView
-                    android:id="@+id/test_multiplier_carats"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:text="carats multiplier" />
-
-                <TextView
-                    android:id="@+id/test_multiplier_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:text="profile multiplier" />
-
-                <TextView
-                    android:id="@+id/test_labour_cost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="labour" />
+                    android:id="@+id/woman_ring_price_with_VAT"
+                    style="@style/LeftPricesStyle"
+                    android:text="@string/priceWithVat" /> -->
             </LinearLayout>
-    -->
-    <TextView
-        android:id="@+id/appVersion"
-        style="@style/appVersionStyle"
-        android:text="@string/appVersion" />
-</LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_margin="@dimen/margin4"
+                android:background="@android:color/darker_gray" />
+
+            <!-- male ring choices-->
+            <LinearLayout style="@style/LinearLayoutSexStyle">
+
+                <ImageView
+                    style="@style/SexSymbolStyle"
+                    android:src="@drawable/male_symbol" />
+
+                <ImageView
+                    android:id="@+id/male_ring_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:paddingBottom="@dimen/paddingBottom8"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/v001c" />
+
+                <TextView
+                    android:id="@+id/male_color"
+                    style="@style/AvailableColorStyle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/paddingBottom32">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/RightLabelStyleW600"
+                            android:text="@string/design" />
+
+                        <Spinner
+                            android:id="@+id/man_design"
+                            style="@style/SpinnerStyleW600" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/paddingBottom32">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/RightLabelStyleW600"
+                            android:text="@string/carats" />
+
+                        <Spinner
+                            android:id="@+id/man_carats"
+                            style="@style/SpinnerStyleW600" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/paddingBottom32">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/RightLabelStyleW600"
+                            android:text="@string/profile" />
+
+                        <Spinner
+                            android:id="@+id/man_profile"
+                            style="@style/SpinnerStyleW600" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/paddingBottom32">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/LeftLabelStyleW600"
+                            android:text="@string/stones" />
+
+                        <Spinner
+                            android:id="@+id/man_stones"
+                            style="@style/SpinnerStyleW600" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--
+                <TextView
+                    android:id="@+id/man_ring_price_no_VAT"
+                    style="@style/RightPricesStyle"
+                    android:text="@string/priceNoVat" />
+
+                <TextView
+                    android:id="@+id/man_ring_price_with_VAT"
+                    style="@style/RightPricesStyle"
+                    android:text="@string/priceWithVat" /> -->
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <!--
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center">
+
+                   <TextView
+                       style="@style/totalCostsLabelsStyle"
+                       android:text="@string/totalcostNoVat" />
+
+                   <TextView
+                       android:id="@+id/total_cost_noVAT"
+                       style="@style/totalCostsStyle" />
+               </LinearLayout>
+       -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                style="@style/totalCostsLabelsStyleW600"
+                android:text="@string/totalcostWithVat" />
+
+            <TextView
+                android:id="@+id/total_cost_withVAT"
+                style="@style/totalCostsStyleW600" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCalculate"
+            style="@style/ButtonStyleW600"
+            android:text="@string/calculate_order" />
+
+        <TextView
+            android:id="@+id/explanation"
+            style="@style/ExplanationStyle"
+            android:text="@string/explanation_text"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnAddToCompare"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layoutMargin24"
+                android:layout_marginRight="@dimen/margin12"
+                android:layout_weight="2"
+                android:background="@color/gold"
+                android:paddingHorizontal="@dimen/padding2"
+                android:text="@string/add_to_compare"
+
+                android:textColor="@color/textColor" />
+
+            <Button
+                android:id="@+id/Compare"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin12"
+                android:layout_marginRight="@dimen/layoutMargin24"
+                android:layout_weight="1"
+                android:background="@color/gold"
+                android:text="@string/compare"
+                android:textColor="@color/textColor" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/internetSettings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:padding="@dimen/padding16"
+                android:text="@string/internetSettings"
+                android:textSize="@dimen/text14" />
+
+            <TextView
+                android:id="@+id/resetApp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:padding="@dimen/padding16"
+                android:text="@string/resetApp"
+                android:textSize="@dimen/text14" />
+        </LinearLayout>
+        <!--
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/test_position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:text="selected position" />
+
+                    <TextView
+                        android:id="@+id/test_multiplier_carats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:text="carats multiplier" />
+
+                    <TextView
+                        android:id="@+id/test_multiplier_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:text="profile multiplier" />
+
+                    <TextView
+                        android:id="@+id/test_labour_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="labour" />
+                </LinearLayout>
+        -->
+        <TextView
+            android:id="@+id/appVersion"
+            style="@style/appVersionStyle"
+            android:text="@string/appVersion" />
+    </LinearLayout>
 
 
 </ScrollView>

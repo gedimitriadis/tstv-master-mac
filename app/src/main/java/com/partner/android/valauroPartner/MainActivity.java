@@ -58,10 +58,8 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
     Button buttonCalculate;
     Button buttonAddToCompare;
     Button buttonCompare;
-    //Button buttonCompare;
     ArrayList<Double> weights;
     static ArrayList<pairOfRingsItem> pairOfRingsItems = new ArrayList<pairOfRingsItem>();
-
     int posW;
     int posM;
     double goldPricePerGrammar;
@@ -138,11 +136,9 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // gets screen size for calling the right spinner layout
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
-
-
-
 
         // Creates the Volley request queue
         requestQueue = Volley.newRequestQueue(this);
@@ -178,8 +174,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         totalCostWithVat = (TextView) findViewById(R.id.total_cost_withVAT);
         buttonCalculate = (Button) findViewById(R.id.btnCalculate);
         buttonCompare = (Button) findViewById(R.id.Compare);
-        //PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-       // boolean isScreenOn = pm.isInteractive();
+
 
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
@@ -254,6 +249,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         // gold price and date textviews are invisible for now
         price_TextView.setVisibility(View.GONE);
         date_TextView.setVisibility(View.GONE);
+        //button compare is invisible until add to compare is pressed
         buttonCompare.setVisibility(View.GONE);
 
 
@@ -492,7 +488,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
             }
         });
 
-
+        // add to compare list
         buttonAddToCompare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -506,19 +502,18 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                 String profileMan = spinner_man_profiles.getSelectedItem().toString();
                 int stonesWoman = (int) spinner_woman_stones.getSelectedItem();
                 int stonesMan = (int) spinner_man_stones.getSelectedItem();
+                // calculates order value if user forgets to press calculate button
                 buttonCalculate.performClick();
                 String pairCost = (String) totalCostWithVat.getText();
                 buttonCompare.setVisibility(View.VISIBLE);
 
-
+                //adds ring item to the arraylist which is the data source for the arrayadapter
                 pairOfRingsItem pairOfRingsItem = new pairOfRingsItem(WomanImageResourceID, ManImageResourceID, designWoman, designMan, caratsWoman, caratsMan, profileWoman, profileMan,stonesWoman,stonesMan, pairCost);
 
                 Toast toast = Toast.makeText(MainActivity.this, R.string.add_to_compare_complete, Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
-                Log.v("pairOfRingsItem", "womanImageID " + WomanImageResourceID + " ManImageID " + ManImageResourceID + " design woman " + designWoman + " design man " +designMan + " carats woman " + caratsWoman + " carats man " + caratsMan + " profile woman " + profileWoman + " profile man " + profileMan + " stones woman " + stonesWoman +" stones man " +  stonesMan + " pairCost " + pairCost);
-                // Add the new {@link book} to the list of books.
-
+                //Log.v("pairOfRingsItem", "womanImageID " + WomanImageResourceID + " ManImageID " + ManImageResourceID + " design woman " + designWoman + " design man " +designMan + " carats woman " + caratsWoman + " carats man " + caratsMan + " profile woman " + profileWoman + " profile man " + profileMan + " stones woman " + stonesWoman +" stones man " +  stonesMan + " pairCost " + pairCost);
                 pairOfRingsItems.add(pairOfRingsItem);
 
             }
@@ -528,10 +523,9 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         buttonCompare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //sends data to compare rings activity through intent  pairOfRingsItems to ringComparelist
                 Intent myIntent = new Intent(MainActivity.this, CompareActivity.class);
                 myIntent.putExtra("FILES_TO_SEND", pairOfRingsItems);
-                //ArrayList<pairOfRingsItem> myList = new ArrayList<pairOfRingsItem>();
-                //myIntent.putParcelableArrayListExtra("pairRingsList", (ArrayList<? extends Parcelable>) pairOfRingsItems); //Optional parameters
                 MainActivity.this.startActivity(myIntent);
             }
         });
@@ -565,13 +559,6 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
 
     }
 
-    @Override
-    public void onResume()
-    {  // After a pause OR at startup
-        super.onResume();
-        //Refresh your stuff here
-
-    }
 
     public void CreateSpinnerDesign() {
 
@@ -2554,10 +2541,4 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
 
 
     }
-
-
-
-
-
-
 }

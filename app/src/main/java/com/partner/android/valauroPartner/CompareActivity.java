@@ -25,25 +25,21 @@ public class CompareActivity extends AppCompatActivity implements java.io.Serial
 
 
     ArrayList<pairOfRingsItem> ringComparelist;
-    /** Adapter for the list of books */
+    /** Adapter for the list of rings */
     private pairOfRingsItemAdapter adapter;
 
-    /** TextView that is displayed when the list is empty */
-    //private TextView mEmptyStateTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_item);
-
         populateRingsList();
-
-
     }
 
     private void populateRingsList() {
         // Construct the data source
         final ArrayList<pairOfRingsItem> ringComparelist;
+        // gets the data from main activity through intent, pairOfRingsItems into ringComparelist
         ringComparelist = (ArrayList<pairOfRingsItem>)getIntent().getSerializableExtra("FILES_TO_SEND");
 
         // Create the adapter to convert the array to views
@@ -53,13 +49,10 @@ public class CompareActivity extends AppCompatActivity implements java.io.Serial
         final ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
 
-
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
+                // Delete pair of rings with dialog box
                 AlertDialog.Builder adb=new AlertDialog.Builder(CompareActivity.this);
                 adb.setTitle("Διαγραφή");
                 adb.setMessage("Θέλετε να διαγράψετε αυτό το ζευγάρι; ");
@@ -69,6 +62,7 @@ public class CompareActivity extends AppCompatActivity implements java.io.Serial
                     public void onClick(DialogInterface dialog, int which) {
                         ringComparelist.remove(positionToRemove);
                         adapter.notifyDataSetChanged();
+                        //delete from tha data source too because adapter doesn't refresh properly
                         pairOfRingsItems.remove(positionToRemove);
                     }});
                 adb.show();

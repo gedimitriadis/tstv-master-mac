@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
+
+
+<!-- for tablets 7 inches and more-->
+
+
+
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -371,14 +379,6 @@
                 android:layout_margin="@dimen/layoutMargin24"/>
         </LinearLayout>
 
-<!--
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/Compare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:src="@drawable/compare"
-            android:layout_margin="16dp" /> -->
 
         <LinearLayout
             android:layout_width="match_parent"

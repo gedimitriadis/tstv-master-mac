@@ -5,6 +5,7 @@
     <dimen name="margin4">4dp</dimen>
     <dimen name="padding16">16dp</dimen>
     <dimen name="padding12">12dp</dimen>
+    <dimen name="padding2">2dp</dimen>
     <dimen name="padding4">4dp</dimen>
     <dimen name="paddingBottom8">8dp</dimen>
     <dimen name="paddingBottom32">32dp</dimen>
@@ -12,6 +13,7 @@
     <dimen name="height60">60dp</dimen>
     <dimen name="marginLeft12">12dp</dimen>
     <dimen name="marginLeft8">8dp</dimen>
+    <dimen name="margin12">12dp</dimen>
     <dimen name="marginLeft16">16dp</dimen>
     <dimen name="text11">11sp</dimen>
     <dimen name="text14">14sp</dimen>

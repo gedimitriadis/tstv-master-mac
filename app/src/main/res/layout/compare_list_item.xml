@@ -1,9 +1,11 @@
+<!-- for phones until 5.5 inches -->
+
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
 
     <!-- Woman ring image-->
@@ -13,18 +15,18 @@
 
         <ImageView
             android:id="@+id/Image_Ring_Woman"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:scaleType="centerInside"
-            android:contentDescription="ring description" />
+            android:layout_weight="1"
+            android:contentDescription="ring description"
+            android:scaleType="centerInside" />
 
         <!-- Ring Pair data WOMAN-->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="2"
             android:layout_height="150dp"
             android:layout_margin="@dimen/margin8"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <!-- Woman design-->
@@ -80,7 +82,6 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -88,18 +89,18 @@
         <!-- Man ring image-->
         <ImageView
             android:id="@+id/Image_Ring_Man"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:scaleType="centerInside"
-            android:contentDescription="ring description" />
+            android:layout_weight="1"
+            android:contentDescription="ring description"
+            android:scaleType="centerInside" />
 
         <!-- Ring Pair data MAN-->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="2"
             android:layout_height="150dp"
             android:layout_margin="@dimen/margin8"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <!-- Man design-->
@@ -163,16 +164,15 @@
         <TextView
             android:id="@+id/Pair_Price_Label_TextView"
             style="@style/labelStyleW600"
-            android:text="Τιμή ζευγαριού"
-            android:layout_marginLeft="@dimen/paddingBottom32"/>
+            android:layout_marginLeft="@dimen/paddingBottom32"
+            android:text="Τιμή ζευγαριού" />
 
 
         <TextView
             android:id="@+id/Pair_Price_Data_TextView"
             style="@style/DataStyleW600"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="@dimen/text24" />
-
 
 
     </LinearLayout>
