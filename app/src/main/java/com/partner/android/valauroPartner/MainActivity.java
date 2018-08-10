@@ -10,6 +10,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Parcelable;
 import android.os.PowerManager;
 import android.provider.Settings;
@@ -43,6 +45,7 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
     // Will show the string "data" that holds the results
 
-    public static int shippingCost = 10;
+    int totalShippingCost;
     TextView date_TextView;
     TextView price_TextView;
     Button buttonCalculate;
@@ -102,6 +105,10 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
     TextView internetSettings;
     TextView resetApp;
 
+    final long delayMillis=1000;
+    Handler h=null;
+    Runnable r;
+
 
     // URL of object to be parsed
     String JsonURL = "https://www.quandl.com/api/v3/datasets/LBMA/GOLD.json?column_index=6&exclude_column_names=true&rows=2&order=asc&api_key=yu5Cz1dz6Vs4nPXu9TmL";
@@ -139,6 +146,38 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         // gets screen size for calling the right spinner layout
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        // restart app every morning at 7.00 to get the latest gold price
+        h=new Handler(Looper.getMainLooper());
+        r = new Runnable() {
+
+            public void run() {
+
+                //current time
+                Calendar c = Calendar.getInstance();
+                int hour = c.get(Calendar.HOUR_OF_DAY);
+                int min=c.get(Calendar.MINUTE);
+                int sec=c.get(Calendar.SECOND);
+                String currenttime= String.valueOf(hour)+" : "+String.valueOf(min)+" : "+String.valueOf(sec);
+
+
+                //comparing current time with 12:00pm
+                if(currenttime.equals("7 : 0 : 0")){
+
+                    //restarting the activity
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
+
+                }
+
+
+                h.postDelayed(this, delayMillis);
+
+            }
+        };
+
+        h.post(r);
 
         // Creates the Volley request queue
         requestQueue = Volley.newRequestQueue(this);
@@ -238,6 +277,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
             toast.show();
             buttonCalculate.setText(R.string.no_internet);
             buttonCalculate.setEnabled(false);
+            buttonAddToCompare.setEnabled(false);
         }
         // create spinners for designs, carats, ring profile,stones
         CreateSpinnerDesign();
@@ -449,19 +489,21 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
             public void onClick(View v) {
                 goldPricePerGrammar = (Double.parseDouble(price_TextView.getText().toString()) / 1000);
 
-                //Log.v(LOG_TAG, "gold price: " + goldPricePerGrammar + "\n" + "woman multiplier carats:" + woman_multiplier_carats + "\n" + "weightcarats multiplier woman:" + weightCaratsMultiplierWoman + "\n" + "woman multiplier profile:" + woman_multiplier_profile + "\n" + "weight:" + weightTable().get(posW) + "\n" + "labour cost:" + labourCostW + "\n"+ "positionWOMAN:"+ posW);
+                Log.v(LOG_TAG, "gold price: " + goldPricePerGrammar + "\n" + "woman multiplier carats:" + woman_multiplier_carats + "\n" + "weightcarats multiplier woman:" + weightCaratsMultiplierWoman + "\n" + "woman multiplier profile:" + woman_multiplier_profile + "\n" + "weight:" + weightTable().get(posW) + "\n" + "labour cost:" + labourCostW + "\n"+ "positionWOMAN:"+ posW);
                 double womanStoneValue;
                 double manStoneValue;
                 double extraWeightMan;
                 // no design is selected for stone value
                 if (posW == 0) {
                     womanStoneValue = 0;
+                    womanRingPriceWithVAT = 0;
                 } else {
                     womanStoneValue = 12 * 2.5 * (Integer.parseInt(spinner_woman_stones.getSelectedItem().toString()));
+                    womanRingPriceNoVAT = (goldPricePerGrammar * woman_multiplier_carats) * (weightCaratsMultiplierWoman * woman_multiplier_profile * weightTable().get(posW)) + labourCostW;
+                    womanRingPriceWithVAT = womanRingPriceNoVAT * 1.24;
                 }
 
-                womanRingPriceNoVAT = (goldPricePerGrammar * woman_multiplier_carats) * (weightCaratsMultiplierWoman * woman_multiplier_profile * weightTable().get(posW)) + labourCostW;
-                womanRingPriceWithVAT = womanRingPriceNoVAT * 1.24;
+
                 // woman_ring_price_no_vat.setText(getString(R.string.price_no_vat) + " " + String.format("%.0f", womanRingPriceNoVAT) + " €");
                 // woman_ring_price_with_vat.setText(getString(R.string.price_with_vat) + " " + String.format("%.0f", womanRingPriceWithVAT) + " €");
 
@@ -470,20 +512,29 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                 if (posM == 0) {
                     extraWeightMan = 0;
                     manStoneValue =0;
+                    manRingPriceWithVAT = 0;
+
                 } else {
                     extraWeightMan = 0.5;
                     manStoneValue = 12 * 2.5 * (Integer.parseInt(spinner_man_stones.getSelectedItem().toString()));
+                    manRingPriceNoVAT = ((goldPricePerGrammar * man_multiplier_carats) * ((weightCaratsMultiplierMan * man_multiplier_profile * (weightTable().get(posM)) + extraWeightMan)))  + labourCostM;
+                    manRingPriceWithVAT = manRingPriceNoVAT * 1.24;
                 }
-                manRingPriceNoVAT = ((goldPricePerGrammar * man_multiplier_carats) * ((weightCaratsMultiplierMan * man_multiplier_profile * (weightTable().get(posM)) + extraWeightMan)))  + labourCostM;
-                manRingPriceWithVAT = manRingPriceNoVAT * 1.24;
+
                 //  man_ring_price_no_vat.setText(getString(R.string.price_no_vat) + " " + String.format("%.0f", manRingPriceNoVAT) + " €");
                 //  man_ring_price_with_vat.setText(getString(R.string.price_with_vat) + " " + String.format("%.0f", manRingPriceWithVAT) + " €");
 
                 //  totalCost_noVAT = (womanRingPriceNoVAT + manRingPriceNoVAT) * 2;
                 //  totalCostNoVat.setText(String.format("%.0f", totalCost_noVAT) + " €");
-
-                totalCost_withVAT = (womanRingPriceWithVAT + manRingPriceWithVAT) * 2 + womanStoneValue + manStoneValue + shippingCost;
-                totalCostWithVat.setText(String.format("%.0f", totalCost_withVAT) + " €");
+                if (posM != 0 && posW !=0){
+                    totalShippingCost = 15;
+                }else if (posM == 0 && posW == 0){
+                    totalShippingCost = 0;
+                }else{
+                    totalShippingCost = 10;
+                }
+                totalCost_withVAT = (womanRingPriceWithVAT + manRingPriceWithVAT) * 2 + womanStoneValue + manStoneValue + totalShippingCost  ;
+                totalCostWithVat.setText(String.format("%.0f", totalCost_withVAT ) + " €");
 
             }
         });
@@ -1045,6 +1096,9 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         spinner_woman_stones.setSelection(0);
         spinner_man_stones.setAdapter(adapter);
         spinner_man_stones.setSelection(0);
+
+
+
 
     }
 
