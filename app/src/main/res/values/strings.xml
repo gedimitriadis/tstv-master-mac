@@ -15,6 +15,7 @@
     <string name="compare">συγκριση</string>
     <string name="no_internet">Συνδεθείτε στο Internet και επανεκκινήστε την εφαρμογή</string>
     <string name="just_normal_profile">Το σχέδιο αυτό είναι διαθέσιμο μόνο σε κανονικό προφίλ</string>
+    <string name="no_low_profile">Το σχέδιο αυτό δεν είναι διαθέσιμο σε χαμηλό προφίλ</string>
     <string name="availableColor">Διαθέσιμο σε λευκό, κίτρινο</string>
     <string name="price_no_vat">Τιμή χωρίς ΦΠΑ : </string>
     <string name="price_with_vat">Τιμή με ΦΠΑ : </string>
@@ -26,4 +27,17 @@
     <string name="internetSettings">Ρυθμίσεις Internet </string>
     <string name="resetApp">Επανεκκίνηση </string>
     <string name="appVersion">ValauroPartner Version 2.0 by Dim)e(Geo </string>
+    <string name="carats8K">8K</string>
+    <string name="carats14K">14K</string>
+    <string name="carats18K">18K</string>
+    <string name="profileLow">Χαμηλό</string>
+    <string name="profileNormal">Κανονικό</string>
+    <string name="profileHigh">Ψηλό</string>
+    <string name="pairPrice">Τιμή ζευγαριού</string>
+    <string name="deletePair">Διαγραφή</string>
+    <string name="deletePairQuestion">Θέλετε να διαγράψετε αυτό το ζευγάρι;</string>
+    <string name="Cancel">Ακύρωση</string>
+    <string name="Delete">Διαγραφή</string>
+    <string name="chooseDesign">Επιλέξτε σχέδιο</string>
+
 </resources>

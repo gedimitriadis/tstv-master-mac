@@ -34,7 +34,7 @@
 
                 <TextView
                     style="@style/labelStyleW600"
-                    android:text="Σχέδιο" />
+                    android:text="@string/design" />
 
                 <TextView
                     android:id="@+id/Design_Woman_TextView"
@@ -46,7 +46,7 @@
 
                 <TextView
                     style="@style/labelStyleW600"
-                    android:text="Καράτια" />
+                    android:text="@string/carats" />
 
                 <TextView
                     android:id="@+id/Carats_Woman_TextView"
@@ -58,7 +58,7 @@
 
                 <TextView
                     style="@style/labelStyleW600"
-                    android:text="Προφίλ" />
+                    android:text="@string/profile" />
 
                 <TextView
                     android:id="@+id/Profile_Woman_TextView"
@@ -70,7 +70,7 @@
 
                 <TextView
                     style="@style/labelStyleW600"
-                    android:text="Αριθμός μπριγιάν" />
+                    android:text="@string/stones" />
 
                 <TextView
                     android:id="@+id/Stones_Woman_TextView"
@@ -108,7 +108,7 @@
 
                 <TextView
                     style="@style/labelStyleW600"
-                    android:text="Σχέδιο" />
+                    android:text="@string/design" />
 
                 <TextView
                     android:id="@+id/Design_Man_TextView"
@@ -120,7 +120,7 @@
 
                 <TextView
                     style="@style/labelStyleW600"
-                    android:text="Καράτια" />
+                    android:text="@string/carats" />
 
                 <TextView
                     android:id="@+id/Carats_Man_TextView"
@@ -132,7 +132,7 @@
 
                 <TextView
                     style="@style/labelStyleW600"
-                    android:text="Προφίλ" />
+                    android:text="@string/profile" />
 
                 <TextView
                     android:id="@+id/Profile_Man_TextView"
@@ -144,7 +144,7 @@
 
                 <TextView
                     style="@style/labelStyleW600"
-                    android:text="Αριθμός μπριγιάν" />
+                    android:text="@string/stones" />
 
                 <TextView
                     android:id="@+id/Stones_Man_TextView"
@@ -165,7 +165,7 @@
             android:id="@+id/Pair_Price_Label_TextView"
             style="@style/labelStyleW600"
             android:layout_marginLeft="@dimen/paddingBottom32"
-            android:text="Τιμή ζευγαριού" />
+            android:text="@string/pairPrice" />
 
 
         <TextView

@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.hardware.display.DisplayManager;
 import android.net.ConnectivityManager;
@@ -23,6 +24,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -63,8 +65,11 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
     Button buttonCompare;
     ArrayList<Double> weights;
     static ArrayList<pairOfRingsItem> pairOfRingsItems = new ArrayList<pairOfRingsItem>();
+    ArrayList profiles;
     int posW;
     int posM;
+    String wds;
+    String mds;
     double goldPricePerGrammar;
     double womanRingPriceNoVAT;
     double womanRingPriceWithVAT;
@@ -282,7 +287,8 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         // create spinners for designs, carats, ring profile,stones
         CreateSpinnerDesign();
         CreateSpinnerCarats();
-        CreateSpinnerProfile();
+        CreateWomanSpinnerProfile();
+        CreateManSpinnerProfile();
         CreateSpinnerStones();
         weightTable();
         labourTable();
@@ -315,13 +321,15 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                 femaleColor.setText("" + colorTable().get(posW));
                 // testlabourCost.setText("" + labourCostW);
                 // for designs with normal profile
-                String wds = parent.getSelectedItem().toString();
+                wds = parent.getSelectedItem().toString();
+                CreateWomanSpinnerProfile();
                 if (wds == "31Α - 4.5mm" || wds == "44Α - 5mm" || wds == "51Α - 4mm" || wds == "52Α - 3.5mm" || wds == "57Α - 4mm" || wds == "60Α - 4mm" || wds == "61Α - 3.5mm" || wds == "71Α - 4.5mm" || wds == "73Α - 4.5mm" || wds == "74Α - 4.5mm" || wds == "75Α - 4.5mm" || wds == "76Α - 4.5mm" || wds == "79Α - 4.5mm" || wds == "80Α - 4.5mm" || wds == "95Α - 5mm" || wds == "121Β - 4.5mm" || wds == "132Α - 4.8mm" || wds == "145Α - 5mm" || wds == "147Α - 4.5mm" || wds == "149Α - 4.5mm" || wds == "160Α - 5mm" || wds == "164Α - 5mm" || wds == "166Α - 4.5mm" || wds == "174Α - 4.3mm" || wds == "191Α - 5.5mm" || wds == "191Α - Α - 5.5mm" || wds == "210Α - 4mm" || wds == "224Α - 5.5mm"|| wds == "226Α - 5mm"|| wds == "226Α - Α - 5mm"|| wds == "246Α - 5.5mm"|| wds == "246Α - Α - 5.5mm") {
                     Toast.makeText(MainActivity.this, R.string.just_normal_profile, Toast.LENGTH_SHORT).show();
                     spinner_woman_profiles.setSelection(1);
                     spinner_woman_profiles.setEnabled(false);
+                } else if (wds == "234Α - 5mm") {
+                    Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override
@@ -329,6 +337,8 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                 //resultNumber = getString(R.string.spinner_default_value);
             }
         });
+
+
 
 
         // Set OnClickItemListener on spinner for man ring
@@ -346,12 +356,15 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                 // testPosition.setText(weightTable().get(posM).toString());
                 // testlabourCost.setText(labourTable().get(posM).toString());
                 // for designs with normal profile
-                String mds = parent.getSelectedItem().toString();
+                mds = parent.getSelectedItem().toString();
+                CreateManSpinnerProfile();
                 if (mds == "31Α - 4.5mm" || mds == "44Α - 5mm" || mds == "51Α - 4mm" || mds == "52Α - 3.5mm" || mds == "57Α - 4mm" || mds == "60Α - 4mm" || mds == "61Α - 3.5mm" || mds == "71Α - 4.5mm" || mds == "73Α - 4.5mm" || mds == "74Α - 4.5mm" || mds == "75Α - 4.5mm" || mds == "76Α - 4.5mm" || mds == "79Α - 4.5mm" || mds == "80Α - 4.5mm" || mds == "95Α - 5mm" || mds == "121Β - 4.5mm" || mds == "132Α - 4.8mm" || mds == "145Α - 5mm" || mds == "147Α - 4.5mm" || mds == "149Α - 4.5mm" || mds == "160Α - 5mm" || mds == "164Α - 5mm" || mds == "166Α - 4.5mm" || mds == "174Α - 4.3mm" || mds == "191Α - 5.5mm" || mds == "191Α - Α - 5.5mm" || mds == "210Α - 4mm" || mds == "224Α - 5.5mm"|| mds == "226Α - 5mm"|| mds == "226Α - Α - 5mm"|| mds == "246Α - 5.5mm"|| mds == "246Α - Α - 5.5mm") {
                     Toast.makeText(MainActivity.this, R.string.just_normal_profile, Toast.LENGTH_SHORT).show();
                     spinner_man_profiles.setSelection(1);
                     spinner_man_profiles.setEnabled(false);
-                }
+                } else if (mds == "234Α - Α - 5mm") {
+                Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
+            }
 
             }
 
@@ -366,19 +379,20 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         spinner_woman_carats.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String woman_carats_selection = (String) parent.getSelectedItem();
+                //String woman_carats_selection = (String) parent.getSelectedItem();
+                int woman_carats_selection = parent.getSelectedItemPosition();
                 switch (woman_carats_selection) {
-                    case "8K":
+                    case 0:
                         woman_multiplier_carats = 0.366;
                         labourCostW = labourTable().get(posW);
                         weightCaratsMultiplierWoman = 0.84;
                         break;
-                    case "14K":
+                    case 1:
                         woman_multiplier_carats = 0.644;
                         labourCostW = labourTable().get(posW);
                         weightCaratsMultiplierWoman = 1;
                         break;
-                    case "18K":
+                    case 2:
                         woman_multiplier_carats = 0.825;
                         // testlabourCost.setText(""+(labourTable().get(pos)+ 5));
                         labourCostW = labourTable().get(posW) + 5;
@@ -400,19 +414,19 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         spinner_man_carats.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String man_carats_selection = (String) parent.getSelectedItem();
+                int man_carats_selection = parent.getSelectedItemPosition();
                 switch (man_carats_selection) {
-                    case "8K":
+                    case 0:
                         man_multiplier_carats = 0.366;
                         labourCostM = labourTable().get(posM);
                         weightCaratsMultiplierMan = 0.84;
                         break;
-                    case "14K":
+                    case 1:
                         man_multiplier_carats = 0.644;
                         labourCostM = labourTable().get(posM);
                         weightCaratsMultiplierMan = 1;
                         break;
-                    case "18K":
+                    case 2:
                         man_multiplier_carats = 0.825;
                         labourCostM = labourTable().get(posM) + 5;
                         weightCaratsMultiplierMan = 1.16;
@@ -435,19 +449,31 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         spinner_woman_profiles.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String woman_profile_selection = (String) parent.getSelectedItem();
-                switch (woman_profile_selection) {
-                    case "Χαμηλό":
-                        woman_multiplier_profile = 0.82;
-                        break;
-                    case "Κανονικό":
-                        woman_multiplier_profile = 1;
-                        break;
-                    case "Ψηλό":
-                        woman_multiplier_profile = 1.19;
-                        break;
+                int woman_profile_selection = parent.getSelectedItemPosition();
+                if (spinner_woman_profiles.getAdapter().getCount() > 2) {
+                    switch (woman_profile_selection) {
+                        case 0:
+                            woman_multiplier_profile = 0.82;
+                            break;
+                        case 1:
+                            woman_multiplier_profile = 1;
+                            break;
+                        case 2:
+                            woman_multiplier_profile = 1.19;
+                            break;
+                    }
+                    // testprofilemultiplier.setText(""+ woman_multiplier_profile);
+                }else {
+                    switch (woman_profile_selection) {
+                        case 0:
+                            woman_multiplier_profile = 1;
+                            break;
+                        case 1:
+                            woman_multiplier_profile = 1.19;
+                            break;
+                    }
                 }
-                // testprofilemultiplier.setText(""+ woman_multiplier_profile);
+
             }
 
             @Override
@@ -461,19 +487,30 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         spinner_man_profiles.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String man_profile_selection = (String) parent.getSelectedItem();
-                switch (man_profile_selection) {
-                    case "Χαμηλό":
-                        man_multiplier_profile = 0.82;
-                        break;
-                    case "Κανονικό":
-                        man_multiplier_profile = 1;
-                        break;
-                    case "Ψηλό":
-                        man_multiplier_profile = 1.19;
-                        break;
+                int man_profile_selection = parent.getSelectedItemPosition();
+                if (spinner_man_profiles.getAdapter().getCount() > 2) {
+                    switch (man_profile_selection) {
+                        case 0:
+                            man_multiplier_profile = 0.82;
+                            break;
+                        case 1:
+                            man_multiplier_profile = 1;
+                            break;
+                        case 2:
+                            man_multiplier_profile = 1.19;
+                            break;
+                    }
+                    // testprofilemultiplier.setText(""+ woman_multiplier_profile);
+                }else {
+                    switch (man_profile_selection) {
+                        case 0:
+                            man_multiplier_profile = 1;
+                            break;
+                        case 1:
+                            man_multiplier_profile = 1.19;
+                            break;
+                    }
                 }
-                // testprofilemultiplier.setText(""+ man_multiplier_profile);
             }
 
             @Override
@@ -490,6 +527,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                 goldPricePerGrammar = (Double.parseDouble(price_TextView.getText().toString()) / 1000);
 
                 Log.v(LOG_TAG, "gold price: " + goldPricePerGrammar + "\n" + "woman multiplier carats:" + woman_multiplier_carats + "\n" + "weightcarats multiplier woman:" + weightCaratsMultiplierWoman + "\n" + "woman multiplier profile:" + woman_multiplier_profile + "\n" + "weight:" + weightTable().get(posW) + "\n" + "labour cost:" + labourCostW + "\n"+ "positionWOMAN:"+ posW);
+                Log.v(LOG_TAG, "gold price: " + goldPricePerGrammar + "\n" + "man multiplier carats:" + man_multiplier_carats + "\n" + "weightcarats multiplier man:" + weightCaratsMultiplierMan + "\n" + "man multiplier profile:" + man_multiplier_profile + "\n" + "weight:" + weightTable().get(posM) + "\n" + "labour cost:" + labourCostM + "\n"+ "positionMAN:"+ posM);
                 double womanStoneValue;
                 double manStoneValue;
                 double extraWeightMan;
@@ -611,10 +649,11 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
     }
 
 
+
     public void CreateSpinnerDesign() {
 
         ArrayList<String> designs = new ArrayList<String>();
-        designs.add("Επιλέξτε σχέδιο");
+        designs.add(getString(R.string.chooseDesign));
         designs.add("1Γ - 2mm");
         designs.add("2Γ - 2.5mm");
         designs.add("3Γ - 3mm");
@@ -768,7 +807,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         designs.add("306Γ - 3.5mm");
         designs.add("307Γ - 3.4mm");
         designs.add("308Α - 3.5mm");
-        designs.add("309Α - 3mm");
+        designs.add("309Δ - 3mm");
         designs.add("311Α - 4.5mm");
         designs.add("311Α - Α - 4.5mm");
         designs.add("312Γ - 3.5mm");
@@ -992,9 +1031,9 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
 
         ArrayList<String> carats = new ArrayList<String>();
 
-        carats.add("8K");
-        carats.add("14K");
-        carats.add("18K");
+        carats.add(getString(R.string.carats8K));
+        carats.add(getString(R.string.carats14K));
+        carats.add(getString(R.string.carats18K));
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -1021,13 +1060,18 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
 
     }
 
-    public void CreateSpinnerProfile() {
+    public void CreateWomanSpinnerProfile() {
 
         ArrayList<String> profiles = new ArrayList<String>();
 
-        profiles.add("Χαμηλό");
-        profiles.add("Κανονικό");
-        profiles.add("Ψηλό");
+        if (wds != "234Α - 5mm"){
+            profiles.add(getString(R.string.profileLow));
+            profiles.add(getString(R.string.profileNormal));
+            profiles.add(getString(R.string.profileHigh));
+        }else{
+            profiles.add(getString(R.string.profileNormal));
+            profiles.add(getString(R.string.profileHigh));
+        }
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -1047,12 +1091,46 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
 
         spinner_woman_profiles.setAdapter(adapter);
         spinner_woman_profiles.setSelection(1);
-        woman_multiplier_profile = 1;
-        spinner_man_profiles.setAdapter(adapter);
-        spinner_man_profiles.setSelection(1);
-        man_multiplier_profile = 1;
+
 
     }
+
+
+    public void CreateManSpinnerProfile() {
+
+        ArrayList<String> profiles = new ArrayList<String>();
+
+        if (mds != "234Α - Α - 5mm"){
+            profiles.add(getString(R.string.profileLow));
+            profiles.add(getString(R.string.profileNormal));
+            profiles.add(getString(R.string.profileHigh));
+        }else{
+            profiles.add(getString(R.string.profileNormal));
+            profiles.add(getString(R.string.profileHigh));
+        }
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        ArrayAdapter adapter;
+        if (metrics.density < 2) {
+
+            adapter = new ArrayAdapter(this, R.layout.spinner_layout, profiles);
+            adapter.setDropDownViewResource(R.layout.spinner_layout);
+
+
+        }else {
+
+            adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, profiles);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        }
+
+        spinner_man_profiles.setAdapter(adapter);
+        spinner_man_profiles.setSelection(1);
+
+
+    }
+
 
     public void CreateSpinnerStones() {
 

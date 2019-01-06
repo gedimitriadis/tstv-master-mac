@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Valauro Wedding Rings</string>
+    <string name="compare_activity">Valauro Wedding Rings - Ring Comparison</string>
+    <string name="design">Design:</string>
+    <string name="carats">Carats:</string>
+    <string name="profile">Profile:</string>
+    <string name="stones">Brilliant number:</string>
+    <string name="priceNoVat">Price not including VAT</string>
+    <string name="priceWithVat">Price including VAT</string>
+    <string name="totalcostNoVat">Recommended retail price without VAT:</string>
+    <string name="totalcostWithVat">Recommended retail price with VAT:</string>
+    <string name="calculate_order">calculate price</string>
+    <string name="add_to_compare">add to comparison</string>
+    <string name="add_to_compare_complete">Pair added to comparison</string>
+    <string name="compare">Compare</string>
+    <string name="no_internet">Please connect to internet and restart the app</string>
+    <string name="just_normal_profile">Design available just in normal profile</string>
+    <string name="no_low_profile">Design not available in low profile</string>
+    <string name="availableColor">Available in white, yellow</string>
+    <string name="price_no_vat">Price not including VAT:</string>
+    <string name="price_with_vat">Price including VAT:</string>
+    <string name="three_colors">Available in white, yellow, pink</string>
+    <string name="color_combination">Available in onecolor, twocolor and any combination</string>
+    <string name="all_combination">Available in all possible combinations</string>
+    <string name="explanation_text">Price is valid for woman sizes until 56 and man sizes until 64</string>
+    <string name="internetSettings">Internet settings</string>
+    <string name="resetApp">Restart</string>
+    <string name="appVersion">ValauroPartner Version 2.0 by Dim)e(Geo</string>
+    <string name="carats8K">8K</string>
+    <string name="carats14K">14K</string>
+    <string name="carats18K">18K</string>
+    <string name="profileLow">Low</string>
+    <string name="profileNormal">Normal</string>
+    <string name="profileHigh">High</string>
+    <string name="pairPrice">Pair Price</string>
+    <string name="deletePair">Delete</string>
+    <string name="deletePairQuestion">Delete this pair?</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Delete">Delete</string>
+    <string name="chooseDesign">Choose design</string>
+</resources>

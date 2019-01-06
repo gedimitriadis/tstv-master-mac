@@ -54,11 +54,11 @@ public class CompareActivity extends AppCompatActivity implements java.io.Serial
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // Delete pair of rings with dialog box
                 AlertDialog.Builder adb=new AlertDialog.Builder(CompareActivity.this);
-                adb.setTitle("Διαγραφή");
-                adb.setMessage("Θέλετε να διαγράψετε αυτό το ζευγάρι; ");
+                adb.setTitle(R.string.deletePair);
+                adb.setMessage(R.string.deletePairQuestion);
                 final int positionToRemove = position;
-                adb.setNegativeButton("Ακύρωση", null);
-                adb.setPositiveButton("Διαγραφή", new AlertDialog.OnClickListener() {
+                adb.setNegativeButton(R.string.Cancel, null);
+                adb.setPositiveButton(R.string.Delete, new AlertDialog.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         ringComparelist.remove(positionToRemove);
                         adapter.notifyDataSetChanged();
