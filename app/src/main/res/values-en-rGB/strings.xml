@@ -26,7 +26,7 @@
     <string name="explanation_text">Price is valid for woman sizes until 56 and man sizes until 64</string>
     <string name="internetSettings">Internet settings</string>
     <string name="resetApp">Restart</string>
-    <string name="appVersion">ValauroPartner Version 2.0 by Dim)e(Geo</string>
+    <string name="appVersion">ValauroPartner Version 2.1.al by Dim)e(Geo</string>
     <string name="carats8K">8K</string>
     <string name="carats14K">14K</string>
     <string name="carats18K">18K</string>
@@ -39,4 +39,17 @@
     <string name="Cancel">Cancel</string>
     <string name="Delete">Delete</string>
     <string name="chooseDesign">Choose design</string>
+    <string name="action_settings">Settings</string>
+    <string name="admin_code_title">Provide Administrator code</string>
+    <string name="code_title">Administrator code</string>
+    <string name="FPA_percentage">Provide VAT percentage</string>
+    <string name="FPA_title">VAT percentage</string>
+    <string name="profit_percentage">Provide profit percentage</string>
+    <string name="profit_title">Profit percentage</string>
+    <string name="FPA_Summary">Insert the appropriate VAT percentage</string>
+    <string name="code_Summary">Become app administrator </string>
+    <string name="profit_Summary">Insert Profit percentage</string>
+    <string name="FPAnotNumber">VAT is not a number</string>
+    <string name="ProfitNotNumber">Profit percentage is not a number</string>
+
 </resources>

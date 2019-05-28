@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.hardware.display.DisplayManager;
@@ -19,10 +20,15 @@ import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.preference.PreferenceManager;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -51,8 +57,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import static android.app.PendingIntent.getActivity;
+import static android.support.v7.preference.PreferenceManager.*;
 
-public class MainActivity extends AppCompatActivity implements java.io.Serializable{
+
+
+public class MainActivity extends AppCompatActivity {
 
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
     // Will show the string "data" that holds the results
@@ -85,6 +95,10 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
     double man_multiplier_profile;
     Integer labourCostW;
     int labourCostM;
+    String FPA_percentage;
+    String Profit_percentage;
+    double NumFPA;
+    double NumProfit;
     //TextView testPosition;
     //TextView testcaratsmultiplier;
     //TextView testprofilemultiplier;
@@ -148,9 +162,16 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+
+
+
         // gets screen size for calling the right spinner layout
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+
 
         // restart app every morning at 7.00 to get the latest gold price
         h=new Handler(Looper.getMainLooper());
@@ -329,6 +350,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                     spinner_woman_profiles.setEnabled(false);
                 } else if (wds == "234Α - 5mm") {
                     Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
+                    spinner_woman_profiles.setSelection(0);
                 }
             }
 
@@ -363,8 +385,9 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                     spinner_man_profiles.setSelection(1);
                     spinner_man_profiles.setEnabled(false);
                 } else if (mds == "234Α - Α - 5mm") {
-                Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
-            }
+                    Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
+                    spinner_man_profiles.setSelection(0);
+                }
 
             }
 
@@ -526,19 +549,23 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
             public void onClick(View v) {
                 goldPricePerGrammar = (Double.parseDouble(price_TextView.getText().toString()) / 1000);
 
-                Log.v(LOG_TAG, "gold price: " + goldPricePerGrammar + "\n" + "woman multiplier carats:" + woman_multiplier_carats + "\n" + "weightcarats multiplier woman:" + weightCaratsMultiplierWoman + "\n" + "woman multiplier profile:" + woman_multiplier_profile + "\n" + "weight:" + weightTable().get(posW) + "\n" + "labour cost:" + labourCostW + "\n"+ "positionWOMAN:"+ posW);
+
+
+                Log.v(LOG_TAG, "gold price: " + goldPricePerGrammar + "\n" + "woman multiplier carats:" + woman_multiplier_carats + "\n" + "weightcarats multiplier woman:" + weightCaratsMultiplierWoman + "\n" + "woman multiplier profile:" + woman_multiplier_profile + "\n" + "weight:" + weightTable().get(posW) + "\n" + "labour cost:" + labourCostW + "\n"+ "positionWOMAN:"+ posW + "\n"+ "fpa_percentage: " + FPA_percentage + "\n"+ "NumFPA:" + NumFPA);
                 Log.v(LOG_TAG, "gold price: " + goldPricePerGrammar + "\n" + "man multiplier carats:" + man_multiplier_carats + "\n" + "weightcarats multiplier man:" + weightCaratsMultiplierMan + "\n" + "man multiplier profile:" + man_multiplier_profile + "\n" + "weight:" + weightTable().get(posM) + "\n" + "labour cost:" + labourCostM + "\n"+ "positionMAN:"+ posM);
                 double womanStoneValue;
                 double manStoneValue;
                 double extraWeightMan;
                 // no design is selected for stone value
+
                 if (posW == 0) {
                     womanStoneValue = 0;
                     womanRingPriceWithVAT = 0;
                 } else {
                     womanStoneValue = 12 * 2.5 * (Integer.parseInt(spinner_woman_stones.getSelectedItem().toString()));
                     womanRingPriceNoVAT = (goldPricePerGrammar * woman_multiplier_carats) * (weightCaratsMultiplierWoman * woman_multiplier_profile * weightTable().get(posW)) + labourCostW;
-                    womanRingPriceWithVAT = womanRingPriceNoVAT * 1.24;
+                    //NumFPA = Integer.parseInt(FPA_percentage.toString());
+                    womanRingPriceWithVAT = womanRingPriceNoVAT *  (1 + (NumFPA/100));
                 }
 
 
@@ -556,7 +583,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                     extraWeightMan = 0.5;
                     manStoneValue = 12 * 2.5 * (Integer.parseInt(spinner_man_stones.getSelectedItem().toString()));
                     manRingPriceNoVAT = ((goldPricePerGrammar * man_multiplier_carats) * ((weightCaratsMultiplierMan * man_multiplier_profile * (weightTable().get(posM)) + extraWeightMan)))  + labourCostM;
-                    manRingPriceWithVAT = manRingPriceNoVAT * 1.24;
+                    manRingPriceWithVAT = manRingPriceNoVAT * (1 + (NumFPA/100));
                 }
 
                 //  man_ring_price_no_vat.setText(getString(R.string.price_no_vat) + " " + String.format("%.0f", manRingPriceNoVAT) + " €");
@@ -571,7 +598,11 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
                 }else{
                     totalShippingCost = 10;
                 }
-                totalCost_withVAT = (womanRingPriceWithVAT + manRingPriceWithVAT) * 2 + womanStoneValue + manStoneValue + totalShippingCost  ;
+                //totalCost_withVAT = (womanRingPriceWithVAT + manRingPriceWithVAT) + ((womanRingPriceWithVAT + manRingPriceWithVAT)* Integer.valueOf(Profit_percentage)/100) + womanStoneValue + manStoneValue + totalShippingCost  ;
+                totalCost_withVAT = (womanRingPriceWithVAT + manRingPriceWithVAT) + ((womanRingPriceWithVAT + manRingPriceWithVAT) * (NumProfit/100)) + womanStoneValue + manStoneValue + totalShippingCost  ;
+
+
+
                 totalCostWithVat.setText(String.format("%.0f", totalCost_withVAT ) + " €");
 
             }
@@ -638,7 +669,7 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
             public void onClick(View v) {
                 Intent mStartActivity = new Intent(MainActivity.this, MainActivity.class);
                 int mPendingIntentId = 123456;
-                PendingIntent mPendingIntent = PendingIntent.getActivity(MainActivity.this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+                PendingIntent mPendingIntent = getActivity(MainActivity.this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
                 AlarmManager mgr = (AlarmManager) MainActivity.this.getSystemService(Context.ALARM_SERVICE);
                 mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
                 System.exit(0);
@@ -646,7 +677,78 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
             }
         });
 
+        android.support.v7.preference.PreferenceManager
+                .setDefaultValues(this,
+                        R.xml.settings_pref, true);
+
+        // Read the settings from the shared preferences, put them into the
+        // SettingsActivity, and display a toast.
+        SharedPreferences sharedPref =
+                android.support.v7.preference.PreferenceManager
+                        .getDefaultSharedPreferences(this);
+        FPA_percentage = sharedPref.getString(SettingsActivity.KEY_PREF_FPA_VALUE,"24");
+        Profit_percentage = sharedPref.getString(SettingsActivity.KEY_PREF_PROFIT_VALUE,"100");
+        try {
+            NumFPA= Integer.parseInt(FPA_percentage);
+            Log.i("",FPA_percentage +" is a number");
+        } catch (NumberFormatException e) {
+            Log.i("",FPA_percentage + " is not a number");
+            Toast.makeText(this, R.string.FPAnotNumber, Toast.LENGTH_SHORT).show();
+        }
+        //NumFPA= Integer.parseInt(FPA_percentage);
+        try {
+            NumProfit= Integer.parseInt(Profit_percentage);
+            Log.i("",Profit_percentage +" is a number");
+        } catch (NumberFormatException e) {
+            Log.i("",Profit_percentage + " is not a number");
+            Toast.makeText(this, R.string.ProfitNotNumber, Toast.LENGTH_SHORT).show();
+        }
+
+        //NumProfit=Integer.parseInt(Profit_percentage);
+        //show on MainActivity FPA and Profit percentage when leave from settings
+        //Toast.makeText(this, FPA_percentage.toString(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, Profit_percentage.toString(), Toast.LENGTH_SHORT).show();
     }
+
+    /**
+     * Inflates the options menu and adds items to the menu.
+     *
+     * @param menu Options menu
+     * @return True if menu is inflated.
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar
+        // if it is present.
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        return true;
+    }
+
+    /**
+     * Handles option menu selections and automatically handles clicks
+     * on the Up button in the app bar.
+     *
+     * @param item Item in options menu
+     * @return True if Settings is selected in the options menu.
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        // If option menu item is Settings, return true.
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(this,
+                    SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 
 
@@ -2673,4 +2775,6 @@ public class MainActivity extends AppCompatActivity implements java.io.Serializa
 
 
     }
+
+
 }

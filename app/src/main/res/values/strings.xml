@@ -26,7 +26,7 @@
     <string name="explanation_text">Η παραπάνω τιμή αναφέρεται σε μεγέθη ως 56 γυναικείο και 64 ανδρικό</string>
     <string name="internetSettings">Ρυθμίσεις Internet </string>
     <string name="resetApp">Επανεκκίνηση </string>
-    <string name="appVersion">ValauroPartner Version 2.0 by Dim)e(Geo </string>
+    <string name="appVersion">ValauroPartner Version 2.1.al by Dim)e(Geo </string>
     <string name="carats8K">8K</string>
     <string name="carats14K">14K</string>
     <string name="carats18K">18K</string>
@@ -39,5 +39,19 @@
     <string name="Cancel">Ακύρωση</string>
     <string name="Delete">Διαγραφή</string>
     <string name="chooseDesign">Επιλέξτε σχέδιο</string>
+    <string name="action_settings">Ρυθμίσεις</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="admin_code_title">Δώστε κωδικό διαχειριστή</string>
+    <string name="code_title">Κωδικός Διαχειριστή</string>
+    <string name="code_Summary">Αποκτήστε δικαιώματα διαχειριστή</string>
+    <string name="FPA_percentage">Δώστε ποσοστό ΦΠΑ</string>
+    <string name="FPA_title">Ποσοστό ΦΠΑ</string>
+    <string name="FPA_Summary">Εισάγετε το ποσοστό ΦΠΑ που ισχύει στην περίπτωση σας</string>
+    <string name="profit_percentage">Δώστε ποσοστό κέρδους</string>
+    <string name="profit_Summary">Εισάγετε το ποσοστό κέρδους που επιθυμείτε</string>
+    <string name="profit_title">Ποσοστό κέρδους</string>
+    <string name="FPAnotNumber">Ο ΦΠΑ που δώσατε δεν είναι αριθμός</string>
+    <string name="ProfitNotNumber">Το ποσοστό κέρδους που δώσατε δεν είναι αριθμός</string>
 </resources>
