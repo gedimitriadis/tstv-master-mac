@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@drawable/valauro_square"
         android:label="@string/app_name"
@@ -30,12 +31,13 @@
             android:name=".SettingsActivity"
             android:label="@string/action_settings"
             android:screenOrientation="portrait">
-            android:parentActivityName=".MainActivity">
+
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
     </application>
 
