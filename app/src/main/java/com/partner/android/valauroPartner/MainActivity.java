@@ -305,6 +305,8 @@ public class MainActivity extends AppCompatActivity {
             buttonCalculate.setEnabled(false);
             buttonAddToCompare.setEnabled(false);
         }
+
+
         // create spinners for designs, carats, ring profile,stones
         CreateSpinnerDesign();
         CreateSpinnerCarats();
@@ -327,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
                 spinner_woman_profiles.setEnabled(true);
                 posW = parent.getSelectedItemPosition();
                 //for relative woman and man designs - automatic man design selection
-                if (posW==53 || posW ==58  || posW ==60 || posW ==62 || posW ==64|| posW ==68|| posW ==71|| posW ==73|| posW ==77|| posW ==86|| posW ==89|| posW ==92|| posW ==94|| posW ==98|| posW ==100|| posW ==102|| posW ==104|| posW ==107|| posW ==109|| posW ==111|| posW ==113|| posW ==115|| posW ==117|| posW ==119|| posW ==121|| posW ==124|| posW ==128|| posW ==135|| posW ==138|| posW ==140|| posW ==142|| posW ==148|| posW ==155|| posW ==159|| posW ==165|| posW ==170|| posW ==183|| posW ==185|| posW ==187|| posW ==189|| posW ==191|| posW ==193 || posW ==195 || posW ==197 || posW ==199 || posW ==201 || posW ==203 || posW ==205 || posW ==227 || posW ==238 || posW ==240 || posW ==242 || posW ==244  || posW ==278 || posW ==280 || posW ==282 || posW ==284 || posW ==286 || posW ==288 || posW ==290 || posW ==292 || posW ==294 || posW ==296 || posW ==298 || posW ==300  || posW ==302 || posW ==304 || posW ==306 || posW ==308 || posW ==310 || posW ==312 || posW ==314 || posW ==327|| posW ==334 || posW ==335 || posW ==337 || posW ==339 || posW ==341 || posW ==343 || posW ==345  ) {
+                if (posW==53 || posW ==58  || posW ==60 || posW ==62 || posW ==64|| posW ==68|| posW ==71|| posW ==73|| posW ==77|| posW ==86|| posW ==89|| posW ==92|| posW ==94|| posW ==98|| posW ==100|| posW ==102|| posW ==104|| posW ==107|| posW ==109|| posW ==111|| posW ==113|| posW ==115|| posW ==117|| posW ==119|| posW ==121|| posW ==124|| posW ==128|| posW ==135|| posW ==138|| posW ==140|| posW ==142|| posW ==148|| posW ==155|| posW ==159|| posW ==165|| posW ==170|| posW ==183|| posW ==185|| posW ==187|| posW ==189|| posW ==191|| posW ==193 || posW ==195 || posW ==197 || posW ==199 || posW ==201 || posW ==203 || posW ==205 || posW ==227 || posW ==238 || posW ==240 || posW ==242 || posW ==244  || posW ==278 || posW ==280 || posW ==282 || posW ==284 || posW ==286 || posW ==288 || posW ==290 || posW ==292 || posW ==294 || posW ==296 || posW ==298 || posW ==300  || posW ==302 || posW ==304 || posW ==306 || posW ==308 || posW ==310 || posW ==312 || posW ==314 || posW ==327|| posW ==334 || posW ==335 || posW ==337 || posW ==339 || posW ==341 || posW ==343 || posW ==345 || posW ==347 || posW ==349 || posW ==351 || posW ==353 || posW ==355 || posW ==357 || posW ==359 || posW ==361|| posW ==371   ) {
                     spinner_man_design.setSelection(posW + 1);
                 }else{
                     spinner_man_design.setSelection(posW);
@@ -1102,6 +1104,40 @@ public class MainActivity extends AppCompatActivity {
         designs.add("453Γ - Α - 4mm");
         designs.add("454Γ - 4mm");
         designs.add("454Γ - Α - 4mm");
+        // New designs 2020
+        designs.add("455Γ - 2mm");
+        designs.add("455Γ - Α - 2mm");
+        designs.add("456Γ - 2mm");
+        designs.add("456Γ - Α - 2mm");
+        designs.add("457Γ - 2mm");
+        designs.add("457Γ - Α - 2mm");
+        designs.add("458Γ - 2mm");
+        designs.add("458Γ - Α - 2mm");
+        designs.add("459Γ - 2mm");
+        designs.add("459Γ - Α - 2mm");
+        designs.add("460Γ - 2mm");
+        designs.add("460Γ - Α - 2mm");
+        designs.add("461Γ - 2mm");
+        designs.add("461Γ - Α - 2mm");
+        designs.add("462Γ - 2.5mm");
+        designs.add("462Γ - Α - 2.5mm");
+        designs.add("463Γ - 2mm");
+        designs.add("464Γ - 2.5mm");
+        designs.add("465Γ - 2mm");
+        designs.add("466Γ - 3mm");
+        designs.add("467Γ - 2.5mm");
+        designs.add("468Γ - 2.5mm");
+        designs.add("469Γ - 2.5mm");
+        designs.add("470Γ - 2.5mm");
+        designs.add("471Γ - 2mm");
+        designs.add("471Γ - Α - 2mm");
+        designs.add("472Γ - 2.5mm");
+        designs.add("473Γ - 2mm");
+        designs.add("474Γ - 2.5mm");
+        designs.add("475Γ - 2mm");
+        designs.add("476Γ - 2.5mm");
+        designs.add("477Γ - 3mm");
+        designs.add("478Γ - 2mm");
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -1631,7 +1667,40 @@ public class MainActivity extends AppCompatActivity {
         weights.add(4.30);
         weights.add(4.40);
         weights.add(4.40);
-
+        //New Designs 2020
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(2.00);
+        weights.add(2.50);
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(2.70);
+        weights.add(3.20);
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(2.20);
+        weights.add(3.20);
+        weights.add(2.50);
+        weights.add(2.60);
+        weights.add(2.70);
+        weights.add(2.60);
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(2.60);
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(2.20);
+        weights.add(2.70);
+        weights.add(3.00);
+        weights.add(2.00);
 
 
         return weights;
@@ -1986,6 +2055,41 @@ public class MainActivity extends AppCompatActivity {
         labourCosts.add(45);
         labourCosts.add(45);
         labourCosts.add(45);
+        //New designs 2020
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+
 
 
 
@@ -2342,7 +2446,40 @@ public class MainActivity extends AppCompatActivity {
         ringImages.add(R.drawable.v453b_a);
         ringImages.add(R.drawable.v454c);
         ringImages.add(R.drawable.v454c_a);
-
+        //New designs 2020
+        ringImages.add(R.drawable.v455c);
+        ringImages.add(R.drawable.v455c_a);
+        ringImages.add(R.drawable.v456c);
+        ringImages.add(R.drawable.v456c_a);
+        ringImages.add(R.drawable.v457c);
+        ringImages.add(R.drawable.v457c_a);
+        ringImages.add(R.drawable.v458c);
+        ringImages.add(R.drawable.v458c_a);
+        ringImages.add(R.drawable.v459c);
+        ringImages.add(R.drawable.v459c_a);
+        ringImages.add(R.drawable.v460c);
+        ringImages.add(R.drawable.v460c_a);
+        ringImages.add(R.drawable.v461c);
+        ringImages.add(R.drawable.v461c_a);
+        ringImages.add(R.drawable.v462c);
+        ringImages.add(R.drawable.v462c_a);
+        ringImages.add(R.drawable.v463c);
+        ringImages.add(R.drawable.v464c);
+        ringImages.add(R.drawable.v465c);
+        ringImages.add(R.drawable.v466c);
+        ringImages.add(R.drawable.v467c);
+        ringImages.add(R.drawable.v468c);
+        ringImages.add(R.drawable.v469c);
+        ringImages.add(R.drawable.v470c);
+        ringImages.add(R.drawable.v471c);
+        ringImages.add(R.drawable.v471c_a);
+        ringImages.add(R.drawable.v472c);
+        ringImages.add(R.drawable.v473c);
+        ringImages.add(R.drawable.v474c);
+        ringImages.add(R.drawable.v475c);
+        ringImages.add(R.drawable.v476c);
+        ringImages.add(R.drawable.v477c);
+        ringImages.add(R.drawable.v478c);
 
 
         return ringImages;
@@ -2691,6 +2828,40 @@ public class MainActivity extends AppCompatActivity {
         ringColors.add(getString(R.string.color_combination));
         ringColors.add(getString(R.string.color_combination));
         ringColors.add(getString(R.string.color_combination));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        //New designs 2020
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
+        ringColors.add(getString(R.string.three_colors));
         ringColors.add(getString(R.string.three_colors));
         ringColors.add(getString(R.string.three_colors));
         ringColors.add(getString(R.string.three_colors));
