@@ -51,5 +51,6 @@
     <string name="profit_Summary">Insert Profit percentage</string>
     <string name="FPAnotNumber">VAT is not a number</string>
     <string name="ProfitNotNumber">Profit percentage is not a number</string>
+    <string name="App_Updated">Application is updated to version 2.5</string>
 
 </resources>
