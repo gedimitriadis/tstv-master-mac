@@ -352,7 +352,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.just_normal_profile, Toast.LENGTH_SHORT).show();
                     spinner_woman_profiles.setSelection(1);
                     spinner_woman_profiles.setEnabled(false);
-                } else if (wds == "234Α - 5mm") {
+                } else if (wds == "234Α - 5mm" || wds == "226Α - 5mm" || wds == "246Α - 5.5mm" || wds =="305Γ - 3.5mm" ) {
                     Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
                     spinner_woman_profiles.setSelection(0);
                 }
@@ -388,7 +388,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.just_normal_profile, Toast.LENGTH_SHORT).show();
                     spinner_man_profiles.setSelection(1);
                     spinner_man_profiles.setEnabled(false);
-                } else if (mds == "234Α - Α - 5mm") {
+                } else if (mds == "234Α - Α - 5mm" || mds == "226Α - Α - 5mm" || mds == "246Α - A - 5.5mm") {
                     Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
                     spinner_man_profiles.setSelection(0);
                 }
@@ -1670,37 +1670,37 @@ public class MainActivity extends AppCompatActivity {
         weights.add(4.40);
         weights.add(4.40);
         //New Designs 2020
-        weights.add(2.20);
-        weights.add(2.70);
-        weights.add(2.20);
-        weights.add(2.70);
-        weights.add(2.20);
-        weights.add(2.70);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.10);
         weights.add(2.00);
+        weights.add(1.90);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.60);
         weights.add(2.50);
-        weights.add(2.20);
-        weights.add(2.70);
-        weights.add(2.20);
-        weights.add(2.70);
-        weights.add(2.20);
-        weights.add(2.70);
-        weights.add(2.70);
-        weights.add(3.20);
-        weights.add(2.20);
-        weights.add(2.70);
-        weights.add(2.20);
-        weights.add(3.20);
+        weights.add(2.10);
+        weights.add(2.60);
+        weights.add(2.10);
+        weights.add(2.60);
         weights.add(2.50);
         weights.add(2.60);
-        weights.add(2.70);
         weights.add(2.60);
-        weights.add(2.20);
-        weights.add(2.70);
         weights.add(2.60);
-        weights.add(2.20);
-        weights.add(2.70);
-        weights.add(2.20);
-        weights.add(2.70);
+        weights.add(2.10);
+        weights.add(2.10);
+        weights.add(2.60);
+        weights.add(2.10);
+        weights.add(2.60);
+        weights.add(2.10);
+        weights.add(2.60);
         weights.add(3.00);
         weights.add(2.00);
 
@@ -1946,7 +1946,7 @@ public class MainActivity extends AppCompatActivity {
         labourCosts.add(35);
         labourCosts.add(35);
         labourCosts.add(35);
-        labourCosts.add(25);
+        labourCosts.add(30);
         labourCosts.add(30);
         labourCosts.add(30);
         labourCosts.add(30);
@@ -1968,7 +1968,19 @@ public class MainActivity extends AppCompatActivity {
         labourCosts.add(35);
         labourCosts.add(35);
         labourCosts.add(30);
-        labourCosts.add(25);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(30);
+        labourCosts.add(35);
+        labourCosts.add(30);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(30);
         labourCosts.add(30);
         labourCosts.add(30);
         labourCosts.add(30);
@@ -1977,62 +1989,25 @@ public class MainActivity extends AppCompatActivity {
         labourCosts.add(30);
         labourCosts.add(30);
         labourCosts.add(35);
-        labourCosts.add(30);
         labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(25);
-        labourCosts.add(30);
-        labourCosts.add(30);
-        labourCosts.add(25);
-        labourCosts.add(30);
-        labourCosts.add(25);
         labourCosts.add(30);
         labourCosts.add(30);
         labourCosts.add(35);
         labourCosts.add(35);
-        labourCosts.add(25);
-        labourCosts.add(25);
-        labourCosts.add(35);
-        labourCosts.add(35);
         labourCosts.add(30);
         labourCosts.add(30);
-        labourCosts.add(25);
-        labourCosts.add(25);
-        labourCosts.add(25);
-        labourCosts.add(25);
         labourCosts.add(30);
         labourCosts.add(30);
-        labourCosts.add(40);
-        labourCosts.add(40);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(40);
-        labourCosts.add(40);
         labourCosts.add(30);
         labourCosts.add(30);
-        labourCosts.add(40);
-        labourCosts.add(40);
+        labourCosts.add(30);
+        labourCosts.add(30);
         labourCosts.add(40);
         labourCosts.add(40);
         labourCosts.add(35);
         labourCosts.add(35);
         labourCosts.add(40);
         labourCosts.add(40);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(30);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
-        labourCosts.add(35);
         labourCosts.add(30);
         labourCosts.add(30);
         labourCosts.add(40);
@@ -2041,23 +2016,48 @@ public class MainActivity extends AppCompatActivity {
         labourCosts.add(40);
         labourCosts.add(35);
         labourCosts.add(35);
+        labourCosts.add(40);
+        labourCosts.add(40);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(35);
         labourCosts.add(35);
         labourCosts.add(30);
         labourCosts.add(35);
         labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(30);
+        labourCosts.add(30);
         labourCosts.add(40);
         labourCosts.add(40);
-        labourCosts.add(45);
-        labourCosts.add(45);
+        labourCosts.add(40);
+        labourCosts.add(40);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(35);
+        labourCosts.add(30);
+        labourCosts.add(35);
+        labourCosts.add(35);
         labourCosts.add(40);
         labourCosts.add(40);
         labourCosts.add(45);
         labourCosts.add(45);
+        labourCosts.add(40);
+        labourCosts.add(40);
         labourCosts.add(45);
         labourCosts.add(45);
         labourCosts.add(45);
         labourCosts.add(45);
-        //New designs 2020
+        labourCosts.add(45);
+        labourCosts.add(45);
+//New designs 2020
         labourCosts.add(30);
         labourCosts.add(30);
         labourCosts.add(30);
@@ -2091,9 +2091,6 @@ public class MainActivity extends AppCompatActivity {
         labourCosts.add(30);
         labourCosts.add(30);
         labourCosts.add(30);
-
-
-
 
         return labourCosts;
     }

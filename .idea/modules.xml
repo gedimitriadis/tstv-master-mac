@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tstv-master-master.iml" filepath="$PROJECT_DIR$/tstv-master-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="tstv-master-master/app" />
+      <module fileurl="file://$PROJECT_DIR$/tstv-master-master.iml" filepath="$PROJECT_DIR$/tstv-master-master.iml" group="tstv-master-master" />
     </modules>
   </component>
 </project>
