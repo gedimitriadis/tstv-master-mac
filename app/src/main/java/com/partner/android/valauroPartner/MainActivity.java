@@ -348,11 +348,11 @@ public class MainActivity extends AppCompatActivity {
                 // for designs with normal profile
                 wds = parent.getSelectedItem().toString();
                 CreateWomanSpinnerProfile();
-                if (wds == "31Α - 4.5mm" || wds == "44Α - 5mm" || wds == "51Α - 4mm" || wds == "52Α - 3.5mm" || wds == "57Α - 4mm" || wds == "60Α - 4mm" || wds == "61Α - 3.5mm" || wds == "71Α - 4.5mm" || wds == "73Α - 4.5mm" || wds == "74Α - 4.5mm" || wds == "75Α - 4.5mm" || wds == "76Α - 4.5mm" || wds == "79Α - 4.5mm" || wds == "80Α - 4.5mm" || wds == "95Α - 5mm" || wds == "121Β - 4.5mm" || wds == "132Α - 4.8mm" || wds == "145Α - 5mm" || wds == "147Α - 4.5mm" || wds == "149Α - 4.5mm" || wds == "160Α - 5mm" || wds == "164Α - 5mm" || wds == "166Α - 4.5mm" || wds == "174Α - 4.3mm" || wds == "191Α - 5.5mm" || wds == "191Α - Α - 5.5mm" || wds == "210Α - 4mm" || wds == "224Α - 5.5mm"|| wds == "226Α - 5mm"|| wds == "226Α - Α - 5mm"|| wds == "246Α - 5.5mm"|| wds == "246Α - Α - 5.5mm") {
+                if (wds == "31Α - 4.5mm" || wds == "44Α - 5mm" || wds == "51Α - 4mm" || wds == "52Α - 3.5mm" || wds == "57Α - 4mm" || wds == "60Α - 4mm" || wds == "61Α - 3.5mm" || wds == "71Α - 4.5mm" || wds == "73Α - 4.5mm" || wds == "74Α - 4.5mm" || wds == "75Α - 4.5mm" || wds == "76Α - 4.5mm" || wds == "79Α - 4.5mm" || wds == "80Α - 4.5mm" || wds == "95Α - 5mm" || wds == "121Β - 4.5mm" || wds == "132Α - 4.8mm" || wds == "145Α - 5mm" || wds == "147Α - 4.5mm" || wds == "149Α - 4.5mm" || wds == "160Α - 5mm" || wds == "164Α - 5mm" || wds == "166Α - 4.5mm" || wds == "174Α - 4.3mm" || wds == "191Α - 5.5mm" || wds == "191Α - Α - 5.5mm" || wds == "210Α - 4mm" || wds == "224Α - 5.5mm"|| wds == "226Α - 5mm"|| wds == "226Α - Α - 5mm") {
                     Toast.makeText(MainActivity.this, R.string.just_normal_profile, Toast.LENGTH_SHORT).show();
                     spinner_woman_profiles.setSelection(1);
                     spinner_woman_profiles.setEnabled(false);
-                } else if (wds == "234Α - 5mm" || wds == "226Α - 5mm" || wds == "246Α - 5.5mm" || wds =="305Γ - 3.5mm" ) {
+                } else if (wds == "234Α - 5mm"  || wds == "246Α - 5.5mm" || wds =="305Γ - 3mm" ) {
                     Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
                     spinner_woman_profiles.setSelection(0);
                 }
@@ -384,11 +384,11 @@ public class MainActivity extends AppCompatActivity {
                 // for designs with normal profile
                 mds = parent.getSelectedItem().toString();
                 CreateManSpinnerProfile();
-                if (mds == "31Α - 4.5mm" || mds == "44Α - 5mm" || mds == "51Α - 4mm" || mds == "52Α - 3.5mm" || mds == "57Α - 4mm" || mds == "60Α - 4mm" || mds == "61Α - 3.5mm" || mds == "71Α - 4.5mm" || mds == "73Α - 4.5mm" || mds == "74Α - 4.5mm" || mds == "75Α - 4.5mm" || mds == "76Α - 4.5mm" || mds == "79Α - 4.5mm" || mds == "80Α - 4.5mm" || mds == "95Α - 5mm" || mds == "121Β - 4.5mm" || mds == "132Α - 4.8mm" || mds == "145Α - 5mm" || mds == "147Α - 4.5mm" || mds == "149Α - 4.5mm" || mds == "160Α - 5mm" || mds == "164Α - 5mm" || mds == "166Α - 4.5mm" || mds == "174Α - 4.3mm" || mds == "191Α - 5.5mm" || mds == "191Α - Α - 5.5mm" || mds == "210Α - 4mm" || mds == "224Α - 5.5mm"|| mds == "226Α - 5mm"|| mds == "226Α - Α - 5mm"|| mds == "246Α - 5.5mm"|| mds == "246Α - Α - 5.5mm") {
+                if (mds == "31Α - 4.5mm" || mds == "44Α - 5mm" || mds == "51Α - 4mm" || mds == "52Α - 3.5mm" || mds == "57Α - 4mm" || mds == "60Α - 4mm" || mds == "61Α - 3.5mm" || mds == "71Α - 4.5mm" || mds == "73Α - 4.5mm" || mds == "74Α - 4.5mm" || mds == "75Α - 4.5mm" || mds == "76Α - 4.5mm" || mds == "79Α - 4.5mm" || mds == "80Α - 4.5mm" || mds == "95Α - 5mm" || mds == "121Β - 4.5mm" || mds == "132Α - 4.8mm" || mds == "145Α - 5mm" || mds == "147Α - 4.5mm" || mds == "149Α - 4.5mm" || mds == "160Α - 5mm" || mds == "164Α - 5mm" || mds == "166Α - 4.5mm" || mds == "174Α - 4.3mm" || mds == "191Α - 5.5mm" || mds == "191Α - Α - 5.5mm" || mds == "210Α - 4mm" || mds == "224Α - 5.5mm"|| mds == "226Α - 5mm"|| mds == "226Α - Α - 5mm") {
                     Toast.makeText(MainActivity.this, R.string.just_normal_profile, Toast.LENGTH_SHORT).show();
                     spinner_man_profiles.setSelection(1);
                     spinner_man_profiles.setEnabled(false);
-                } else if (mds == "234Α - Α - 5mm" || mds == "226Α - Α - 5mm" || mds == "246Α - A - 5.5mm") {
+                } else if (mds == "234Α - Α - 5mm" || mds == "246Α - Α - 5.5mm") {
                     Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
                     spinner_man_profiles.setSelection(0);
                 }
@@ -909,9 +909,9 @@ public class MainActivity extends AppCompatActivity {
         designs.add("303Γ - 3.5mm");
         designs.add("304Γ - 3mm");
         designs.add("304Γ - Α - 3mm");
-        designs.add("305Γ - 3.5mm");
+        designs.add("305Γ - 3mm");
         designs.add("306Γ - 3.5mm");
-        designs.add("307Γ - 3.4mm");
+        designs.add("307Γ - 4mm");
         designs.add("308Α - 3.5mm");
         designs.add("309Δ - 3mm");
         designs.add("311Α - 4.5mm");
@@ -1204,7 +1204,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> profiles = new ArrayList<String>();
 
-        if (wds != "234Α - 5mm"){
+        if (wds != "234Α - 5mm" && wds!= "246Α - 5.5mm" && wds!="246Α - Α - 5.5mm" && wds!= "305Γ - 3mm" ){
             profiles.add(getString(R.string.profileLow));
             profiles.add(getString(R.string.profileNormal));
             profiles.add(getString(R.string.profileHigh));
@@ -1240,7 +1240,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> profiles = new ArrayList<String>();
 
-        if (mds != "234Α - Α - 5mm"){
+        if (mds != "234Α - Α - 5mm" && mds!="246Α - Α - 5.5mm" && mds != "305Γ - 3mm" ){
             profiles.add(getString(R.string.profileLow));
             profiles.add(getString(R.string.profileNormal));
             profiles.add(getString(R.string.profileHigh));
