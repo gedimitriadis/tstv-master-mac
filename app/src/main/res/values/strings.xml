@@ -15,6 +15,7 @@
     <string name="compare">συγκριση</string>
     <string name="no_internet">Συνδεθείτε στο Internet και επανεκκινήστε την εφαρμογή</string>
     <string name="just_normal_profile">Το σχέδιο αυτό είναι διαθέσιμο μόνο σε κανονικό προφίλ</string>
+    <string name="just_high_profile">Το σχέδιο αυτό είναι διαθέσιμο μόνο σε ψηλό προφίλ</string>
     <string name="no_low_profile">Το σχέδιο αυτό δεν είναι διαθέσιμο σε χαμηλό προφίλ</string>
     <string name="availableColor">Διαθέσιμο σε λευκό, κίτρινο</string>
     <string name="price_no_vat">Τιμή χωρίς ΦΠΑ : </string>
@@ -40,7 +41,7 @@
     <string name="Delete">Διαγραφή</string>
     <string name="chooseDesign">Επιλέξτε σχέδιο</string>
     <string name="action_settings">Ρυθμίσεις</string>
-    <string name="App_Updated">Η εφαρμογή είναι ενημερωμένη στην έκδοση 2.5.1</string>
+    <string name="App_Updated">Η εφαρμογή είναι ενημερωμένη στην έκδοση 2.5.2</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -7,8 +7,8 @@ android {
         applicationId "com.partner.android.valauroPartner"
         minSdkVersion 20
         targetSdkVersion 28
-        versionCode 28
-        versionName "15_03_2020"
+        versionCode 29
+        versionName "06_06_2020"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

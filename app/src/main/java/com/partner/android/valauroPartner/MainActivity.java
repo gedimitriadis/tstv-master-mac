@@ -352,6 +352,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.just_normal_profile, Toast.LENGTH_SHORT).show();
                     spinner_woman_profiles.setSelection(1);
                     spinner_woman_profiles.setEnabled(false);
+                }else if (wds =="247Γ - 5mm" || wds == "274Γ - 5mm" || wds =="247Γ - Α - 5mm" || wds == "274Γ - Α - 5mm"){
+                    Toast.makeText(MainActivity.this, R.string.just_high_profile, Toast.LENGTH_SHORT).show();
+                    spinner_woman_profiles.setSelection(2);
+                    spinner_woman_profiles.setEnabled(false);
                 } else if (wds == "234Α - 5mm"  || wds == "246Α - 5.5mm" || wds =="305Γ - 3mm" ) {
                     Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
                     spinner_woman_profiles.setSelection(0);
@@ -387,6 +391,10 @@ public class MainActivity extends AppCompatActivity {
                 if (mds == "31Α - 4.5mm" || mds == "44Α - 5mm" || mds == "51Α - 4mm" || mds == "52Α - 3.5mm" || mds == "57Α - 4mm" || mds == "60Α - 4mm" || mds == "61Α - 3.5mm" || mds == "71Α - 4.5mm" || mds == "73Α - 4.5mm" || mds == "74Α - 4.5mm" || mds == "75Α - 4.5mm" || mds == "76Α - 4.5mm" || mds == "79Α - 4.5mm" || mds == "80Α - 4.5mm" || mds == "95Α - 5mm" || mds == "121Β - 4.5mm" || mds == "132Α - 4.8mm" || mds == "145Α - 5mm" || mds == "147Α - 4.5mm" || mds == "149Α - 4.5mm" || mds == "160Α - 5mm" || mds == "164Α - 5mm" || mds == "166Α - 4.5mm" || mds == "174Α - 4.3mm" || mds == "191Α - 5.5mm" || mds == "191Α - Α - 5.5mm" || mds == "210Α - 4mm" || mds == "224Α - 5.5mm"|| mds == "226Α - 5mm"|| mds == "226Α - Α - 5mm") {
                     Toast.makeText(MainActivity.this, R.string.just_normal_profile, Toast.LENGTH_SHORT).show();
                     spinner_man_profiles.setSelection(1);
+                    spinner_man_profiles.setEnabled(false);
+                }else if (mds =="247Γ - Α - 5mm" || mds == "274Γ - Α - 5mm"){
+                    Toast.makeText(MainActivity.this, R.string.just_high_profile, Toast.LENGTH_SHORT).show();
+                    spinner_man_profiles.setSelection(2);
                     spinner_man_profiles.setEnabled(false);
                 } else if (mds == "234Α - Α - 5mm" || mds == "246Α - Α - 5.5mm") {
                     Toast.makeText(MainActivity.this, R.string.no_low_profile, Toast.LENGTH_SHORT).show();
@@ -1292,6 +1300,7 @@ public class MainActivity extends AppCompatActivity {
         numberOfStones.add(13);
         numberOfStones.add(14);
         numberOfStones.add(15);
+        numberOfStones.add(16);
 
 
         DisplayMetrics metrics = new DisplayMetrics();
