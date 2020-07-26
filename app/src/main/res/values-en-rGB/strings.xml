@@ -15,9 +15,12 @@
     <string name="add_to_compare_complete">Pair added to comparison</string>
     <string name="compare">Compare</string>
     <string name="no_internet">Please connect to internet and restart the app</string>
-    <string name="just_normal_profile">Design available just in normal profile</string>
+    <string name="w_just_normal_profile">Woman design available just in normal profile</string>
     <string name="no_low_profile">Design not available in low profile</string>
-    <string name="just_high_profile">Design available just in high profile</string>
+    <string name="w_just_high_profile">Woman design available just in high profile</string>
+    <string name="m_just_normal_profile">Man design available just in normal profile</string>
+    <string name="m_no_low_profile">Man design not available in low profile</string>
+    <string name="m_just_high_profile">Man design available just in high profile</string>
     <string name="availableColor">Available in white, yellow</string>
     <string name="price_no_vat">Price not including VAT:</string>
     <string name="price_with_vat">Price including VAT:</string>
@@ -27,7 +30,7 @@
     <string name="explanation_text">Price is valid for woman sizes until 56 and man sizes until 64</string>
     <string name="internetSettings">Internet settings</string>
     <string name="resetApp">Restart</string>
-    <string name="appVersion">ValauroPartner Version 2.5.2 by Dim)e(Geo</string>
+    <string name="appVersion">ValauroPartner Version 2.6.0 by Dim)e(Geo</string>
     <string name="carats8K">8K</string>
     <string name="carats14K">14K</string>
     <string name="carats18K">18K</string>
@@ -52,6 +55,6 @@
     <string name="profit_Summary">Insert Profit percentage</string>
     <string name="FPAnotNumber">VAT is not a number</string>
     <string name="ProfitNotNumber">Profit percentage is not a number</string>
-    <string name="App_Updated">Application is updated to version 2.5.1</string>
+    <string name="App_Updated">Application is updated to version 2.6.0</string>
 
 </resources>
