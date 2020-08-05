@@ -44,7 +44,7 @@
     <string name="Delete">Διαγραφή</string>
     <string name="chooseDesign">Επιλέξτε σχέδιο</string>
     <string name="action_settings">Ρυθμίσεις</string>
-    <string name="App_Updated">Η εφαρμογή είναι ενημερωμένη στην έκδοση 2.6.0p</string>
+    <string name="App_Updated">Η εφαρμογή είναι ενημερωμένη στην έκδοση 2.6.0</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

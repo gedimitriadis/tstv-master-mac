@@ -1,7 +1,7 @@
 package com.partner.android.valauroPartner;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-import static com.partner.android.valauroPartner.MainActivity.imageTable;
 
 public class pairOfRingsItemAdapter extends ArrayAdapter<pairOfRingsItem>{
     //Constructs a new pairOfRingsItemAdapter.
