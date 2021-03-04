@@ -30,7 +30,7 @@
     <string name="explanation_text">Price is valid for woman sizes until 56 and man sizes until 64</string>
     <string name="internetSettings">Internet settings</string>
     <string name="resetApp">Restart</string>
-    <string name="appVersion">ValauroPartner Version 2.6.0 by Dim)e(Geo</string>
+    <string name="appVersion">ValauroPartner Version 2.6.1 by Dim)e(Geo</string>
     <string name="carats8K">8K</string>
     <string name="carats14K">14K</string>
     <string name="carats18K">18K</string>
@@ -55,6 +55,6 @@
     <string name="profit_Summary">Insert Profit percentage</string>
     <string name="FPAnotNumber">VAT is not a number</string>
     <string name="ProfitNotNumber">Profit percentage is not a number</string>
-    <string name="App_Updated">Application is updated to version 2.6.0</string>
+    <string name="App_Updated">Application is updated to version 2.6.1</string>
 
 </resources>

@@ -917,12 +917,12 @@ public class MainActivity extends AppCompatActivity {
         designs.add("292Α - Α - 5mm");
         designs.add("293Γ - 4.5mm");
         designs.add("293Γ - Α - 4.5mm");
-        designs.add("295Α - 4mm");
+        designs.add("295Δ - 4mm");
         designs.add("298Α - 4mm");
         designs.add("302Γ - 3.5mm");
         designs.add("303Γ - 3.5mm");
-        designs.add("304Γ - 3mm");
-        designs.add("304Γ - Α - 3mm");
+        designs.add("304Γ - 3.5mm");
+        designs.add("304Γ - Α - 3.5mm");
         designs.add("305Γ - 3mm");
         designs.add("306Γ - 3.5mm");
         designs.add("307Γ - 4mm");
@@ -1120,7 +1120,6 @@ public class MainActivity extends AppCompatActivity {
         designs.add("453Γ - Α - 4mm");
         designs.add("454Γ - 4mm");
         designs.add("454Γ - Α - 4mm");
-        // New designs 2020
         designs.add("455Γ - 2mm");
         designs.add("455Γ - Α - 2mm");
         designs.add("456Γ - 2mm");
@@ -1154,6 +1153,7 @@ public class MainActivity extends AppCompatActivity {
         designs.add("476Γ - 2.5mm");
         designs.add("477Γ - 3mm");
         designs.add("478Γ - 2mm");
+
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -1486,8 +1486,8 @@ public class MainActivity extends AppCompatActivity {
         weights.add(4.70);
         weights.add(3.80);
         weights.add(3.70);
-        weights.add(3.20);
-        weights.add(3.20);
+        weights.add(3.70);
+        weights.add(3.70);
         weights.add(2.80);
         weights.add(3.70);
         weights.add(4.00);
@@ -1872,8 +1872,8 @@ public class MainActivity extends AppCompatActivity {
         labourCosts.add(45.0);
         labourCosts.add(35.0);
         labourCosts.add(40.0);
-        labourCosts.add(35.0);
-        labourCosts.add(35.0);
+        labourCosts.add(40.0);
+        labourCosts.add(40.0);
         labourCosts.add(32.5);
         labourCosts.add(40.0);
         labourCosts.add(40.0);
